@@ -23,4 +23,4 @@
 # 3. Tech/Framework
 # 4. How to use?
 # 5. Contributors
-* 김영기, 김종우, 민준영, 이영진, 최민철
+* 김종우, 민준영, 윤영기, 이영진, 최민철
