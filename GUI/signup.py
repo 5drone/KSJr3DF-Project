@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'SignUp.ui'
+# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\SignUP.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -19,6 +19,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/dron.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -55,26 +58,26 @@ class Ui_MainWindow(object):
         self.textEdit_5 = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_5.setGeometry(QtCore.QRect(100, 80, 180, 40))
         self.textEdit_5.setObjectName("textEdit_5")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(10, 20, 85, 251))
-        self.widget.setObjectName("widget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 20, 85, 251))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_2.setContentsMargins(5, 5, 5, 5)
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label = QtWidgets.QLabel(self.widget)
+        self.label = QtWidgets.QLabel(self.layoutWidget)
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label)
-        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
         self.label_2.setObjectName("label_2")
         self.verticalLayout_2.addWidget(self.label_2)
-        self.label_3 = QtWidgets.QLabel(self.widget)
+        self.label_3 = QtWidgets.QLabel(self.layoutWidget)
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.label_3)
-        self.label_4 = QtWidgets.QLabel(self.widget)
+        self.label_4 = QtWidgets.QLabel(self.layoutWidget)
         self.label_4.setObjectName("label_4")
         self.verticalLayout_2.addWidget(self.label_4)
-        self.label_5 = QtWidgets.QLabel(self.widget)
+        self.label_5 = QtWidgets.QLabel(self.layoutWidget)
         self.label_5.setObjectName("label_5")
         self.verticalLayout_2.addWidget(self.label_5)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -87,7 +90,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "General 5ho"))
         self.pushButton.setText(_translate("MainWindow", "인증번호 전송"))
         self.pushButton_2.setText(_translate("MainWindow", "인증하기"))
         self.pushButton_3.setText(_translate("MainWindow", "회원가입"))

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Login_Form.ui'
+# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\Login_Form.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -19,6 +19,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/dron.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -60,7 +63,7 @@ class Ui_MainWindow(object):
         self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_2.setStyleSheet("")
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap(":/icon/user3.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/user1.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
@@ -72,7 +75,7 @@ class Ui_MainWindow(object):
         self.label_4.setSizePolicy(sizePolicy)
         self.label_4.setStyleSheet("background-color: rgb(195, 195, 195);")
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap(":/icon/key2.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/key3.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
@@ -84,7 +87,7 @@ class Ui_MainWindow(object):
         self.label_5.setSizePolicy(sizePolicy)
         self.label_5.setStyleSheet("background-color: rgb(195, 195, 195);")
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap(":/icon/user2.png"))
+        self.label_5.setPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/user2.png"))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -97,7 +100,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "General 5ho"))
         self.pushButton.setText(_translate("MainWindow", "로그인"))
         self.label.setText(_translate("MainWindow", "회원가입"))
         self.label_3.setText(_translate("MainWindow", "비회원 로그인"))
