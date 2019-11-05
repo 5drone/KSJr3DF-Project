@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>user3.png</file>
+    <file>user2.png</file>
+    <file>key2.png</file>
+    <file>key1.png</file>
+    <file>key.png</file>
+    <file>user.png</file>
+    <file>user1.png</file>
+  </qresource>
+</RCC>
