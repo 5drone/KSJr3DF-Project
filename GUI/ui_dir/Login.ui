@@ -17,7 +17,11 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>General 5ho</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icon/dron.jpeg</normaloff>../icon/dron.jpeg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -135,7 +139,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="아이콘 모음/myqrc.qrc">:/icon/user3.png</pixmap>
+     <pixmap>../icon/user1.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -163,7 +167,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="아이콘 모음/myqrc.qrc">:/icon/key2.png</pixmap>
+     <pixmap>../icon/key3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -191,7 +195,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="아이콘 모음/myqrc.qrc">:/icon/user2.png</pixmap>
+     <pixmap>../icon/user2.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -204,7 +208,7 @@
   <tabstop>pushButton</tabstop>
  </tabstops>
  <resources>
-  <include location="아이콘 모음/myqrc.qrc"/>
+  <include location="../icon/5dron.qrc"/>
  </resources>
  <connections/>
 </ui>

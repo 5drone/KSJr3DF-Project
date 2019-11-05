@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>General 5ho</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icon/dron.jpeg</normaloff>../icon/dron.jpeg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -188,7 +192,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>아이콘 모음/arrow.png</normaloff>아이콘 모음/arrow.png</iconset>
+      <normaloff>../icon/arrow.png</normaloff>../icon/arrow.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
@@ -205,7 +209,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>아이콘 모음/arrow.png</normaloff>아이콘 모음/arrow.png</iconset>
+      <normaloff>../icon/arrow.png</normaloff>../icon/arrow.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">

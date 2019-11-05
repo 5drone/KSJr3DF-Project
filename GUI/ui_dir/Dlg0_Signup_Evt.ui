@@ -6,43 +6,52 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
+    <width>300</width>
     <height>140</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>General 5ho</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icon/dron.jpeg</normaloff>../icon/dron.jpeg</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>340</width>
+     <x>110</x>
+     <y>30</y>
+     <width>80</width>
      <height>15</height>
     </rect>
    </property>
    <property name="text">
-    <string>정말 선택한 스냅샷을 초기화하시겠습니까?</string>
+    <string>인증완료!</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QDialogButtonBox" name="buttonBox">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>75</x>
+     <x>10</x>
      <y>90</y>
-     <width>200</width>
-     <height>30</height>
+     <width>280</width>
+     <height>40</height>
     </rect>
    </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(51, 160, 255);</string>
+   </property>
+   <property name="text">
+    <string>OK</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icon/5dron.qrc"/>
+ </resources>
  <connections/>
 </ui>
