@@ -24,7 +24,7 @@
     <normaloff>../icon/dron.jpeg</normaloff>../icon/dron.jpeg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QScrollArea" name="scrollArea">
+   <widget class="QScrollArea" name="WS_scrollArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -56,7 +56,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QScrollArea" name="scrollArea_2">
+   <widget class="QScrollArea" name="Snapshot_scrollArea">
     <property name="geometry">
      <rect>
       <x>104</x>
@@ -88,7 +88,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Menu1_pushbutton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -107,7 +107,7 @@
      <string>menu1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="Menu2_pushButton">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -126,7 +126,7 @@
      <string>menu2</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="Menu3_pushButton">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -145,7 +145,7 @@
      <string>menu3</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="Menu4_pushButton">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -164,7 +164,7 @@
      <string>menu4</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="Menu5_pushButton">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -183,7 +183,7 @@
      <string>menu5</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Preview_Label">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -208,7 +208,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="Top_frame">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -228,7 +228,7 @@ background-color: rgb(184, 184, 184);</string>
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QFrame" name="Right_frame">
     <property name="geometry">
      <rect>
       <x>600</x>
@@ -246,7 +246,7 @@ background-color: rgb(184, 184, 184);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QScrollArea" name="scrollArea_3">
+    <widget class="QScrollArea" name="Active_scrollArea">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -272,7 +272,7 @@ background-color: rgb(184, 184, 184);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="Active_pushButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -308,22 +308,20 @@ background-color: rgb(184, 184, 184);</string>
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <zorder>frame_2</zorder>
-   <zorder>frame</zorder>
-   <zorder>scrollArea</zorder>
-   <zorder>scrollArea_2</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>pushButton_4</zorder>
-   <zorder>pushButton_5</zorder>
-   <zorder>label</zorder>
+   <zorder>Right_frame</zorder>
+   <zorder>Top_frame</zorder>
+   <zorder>WS_scrollArea</zorder>
+   <zorder>Snapshot_scrollArea</zorder>
+   <zorder>Menu1_pushbutton</zorder>
+   <zorder>Menu2_pushButton</zorder>
+   <zorder>Menu3_pushButton</zorder>
+   <zorder>Menu4_pushButton</zorder>
+   <zorder>Menu5_pushButton</zorder>
+   <zorder>Preview_Label</zorder>
    <zorder>line</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="아이콘 모음/main.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

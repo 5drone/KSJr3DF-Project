@@ -6,35 +6,46 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-import dlg1, dlg2, dlg3, dlg4, login, mainwindow, topology, signup
-
+import GUI.dlg0_signup_evt, GUI.dlg1_menu1_evt, GUI.dlg2_menu2_evt, GUI.dlg3_menu3_evt, GUI.dlg4_menu4_evt
+import GUI.login, GUI.signup, GUI.mainwindow, GUI.topology
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
 
+    Dialog0 = QtWidgets.QDialog()
     Dialog1 = QtWidgets.QDialog()
     Dialog2 = QtWidgets.QDialog()
     Dialog3 = QtWidgets.QDialog()
     Dialog4 = QtWidgets.QDialog()
+    Login = QtWidgets.QDialog()
+    SignUp = QtWidgets.QDialog()
+    MainWindow = QtWidgets.QMainWindow()
+    Topology = QtWidgets.QDialog()
 
-    ui1 = dlg1.Ui_Dialog()
-    ui2 = dlg2.Ui_Dialog()
-    ui3 = dlg3.Ui_Dialog()
-    ui4 = dlg4.Ui_Dialog()
+    ui0 = GUI.dlg0_signup_evt.Ui_Dialog()
+    ui1 = GUI.dlg1_menu1_evt.Ui_Dialog()
+    ui2 = GUI.dlg2_menu2_evt.Ui_Dialog()
+    ui3 = GUI.dlg3_menu3_evt.Ui_Dialog()
+    ui4 = GUI.dlg4_menu4_evt.Ui_Dialog()
+    login_ui = GUI.login.Ui_Dialog()
+    signup_ui = GUI.signup.Ui_Dialog()
+    mainwindow_ui = GUI.mainwindow.Ui_MainWindow()
+    topology_ui = GUI.topology.Ui_Dialog()
 
-    ui1.setupUi(Dialog1)
-    ui2.setupUi(Dialog2)
-    ui3.setupUi(Dialog3)
-    ui4.setupUi(Dialog4)
+    # Dialog 창 띄우기
+    #Dialog0.show()
+    #Dialog1.show()
+    #Dialog2.show()
+    #Dialog3.show()
+    #Dialog4.show()
 
-    Dialog1.show()
-    Dialog2.show()
-    Dialog3.show()
-    Dialog4.show()
+    # MainWindow 창 띄우기
+    Login.show()
+    SignUp.show()
+    #MainWindow.show()
+    Topology.show()
 
     sys.exit(app.exec_())
-
 
