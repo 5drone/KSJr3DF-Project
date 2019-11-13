@@ -8,6 +8,7 @@ import urllib.request
 import requests
 from tqdm import tqdm
 import subprocess
+import hashlib
 
 # URL 저장 경로 지정
 W7_url_1 = "http://207.148.109.78/W7.part1.exe"
@@ -32,6 +33,12 @@ ovftool = path.expandvars(r'%ProgramFiles(x86)%\VMware\VMware Workstation\OVFToo
 
 # vmrun
 vmrun = path.expandvars(r'%ProgramFiles(x86)%\VMware\VMware Workstation\vmrun.exe')
+
+# 서버에 업로드 된 이미지 압축 파일 HASH
+HASH_W7_url_1 = "A10C2D32CE04A06B1ACC5D9339E0941FC1922E7F"
+HASH_W7_url_2 = "3A5D90469E56D11815F35030BD4FF0D7B4C4BFE3"
+HASH_WS12_url_1 = "6B73E9AB8AB4332E6B52671E56D3D15D47BFED98"
+HASH_WS12_url_2 = "0EE3AB19D48B798358B006C8001126E20853F36E"
 
 # 인자로 받기
 def receive_argu(string):
@@ -73,25 +80,72 @@ def download_file(url):
     r.raise_for_status()
     total_size = int(r.headers.get('content-length',0))
     t = tqdm(total=total_size, unit='iB', unit_scale=True)
-    with open(local_filename, "wb") as f:
+    with open(local_filename, 'wb') as f:
         for data in r.iter_content(chunk_size=8192):
             t.update(len(data))
             f.write(data)
     t.close()
     r.close()
+    f.close()
     return
+
+# 이미지 원본과의 HASH값 비교
+def hash_compare(download_file_hash):
+    if (download_file_hash == savename_W7_url_1):
+        print("Windows 7 VM Image 1/2 Hash Checking...")
+        fh.open(savename_W7_url_1, 'rb')
+        data = fh.read()
+        fh.close()
+        download_file_hash = hashlib.sha1(data).hexdigest()
+        if (download_file_hash != HASH_W7_url_1):
+            print("Hash does not match. Redownloading...")
+            download_file(W7_url_1)
+
+    if (download_file_hash == savename_W7_url_2):
+        print("Windows 7 VM Image 2/2 Hash Checking...")
+        fh.open(savename_W7_url_2, 'rb')
+        data = fh.read()
+        fh.close()
+        download_file_hash = hashlib.sha1(data).hexdigest()
+        if (download_file_hash != HASH_W7_url_2):
+            print("Hash does not match. Redownloading...")
+            download_file(W7_url_2)
+    
+    if (download_file_hash == savename_WS12_url_1):
+        print("Windows Server 2012 VM 1/2 Image Hash Checking...")
+        fh.open(savename_WS12_url_1, 'rb')
+        data = fh.read()
+        fh.close()
+        download_file_hash = hashlib.sha1(data).hexdigest()
+        if (download_file_hash != HASH_WS12_url_1):
+            print("Hash does not match. Redownloading...")
+            download_file(WS12_url_1)
+    
+    if (download_file_hash == savename_WS12_url_2):
+        print("Windows Server 2012 VM 2/2 Image Hash Checking...")
+        fh.open(savename_WS12_url_2, 'rb')
+        data = fh.read()
+        fh.close()
+        download_file_hash = hashlib.sha1(data).hexdigest()
+        if (download_file_hash != HASH_WS12_url_2):
+            print("Hash does not match. Redownloading...")
+            download_file(WS12_url_2)
 
 # 인자별 다운로드
 def download_WIN7():
     download_file(W7_url_1)
+    hash_compare(savename_W7_url_1)
     print("=========== Windows 7 VM Image Download Complete 1/2 ===========")
     download_file(W7_url_2)
+    hash_compare(savename_W7_url_2)
     print("=========== Windows 7 VM Image Download Complete 2/2 ===========")
 
 def download_WINSERVER2012():
     download_file(WS12_url_1)
+    hash_compare(savename_WS12_url_1)
     print("=========== Windows Server 2012 VM Image Download Complete 1/2 ===========")
     download_file(WS12_url_2)
+    hash_compare(savename_WS12_url_2)
     print("=========== Windows Server 2012 VM Image Download Complete 2/2 ===========")
 
 # main
@@ -100,12 +154,14 @@ if __name__ == '__main__':
 
     print("Detecting OVFTool ...")
     if(os.path.isfile(ovftool) == False):
-        print("OVFTool not Installed. Reinstall VMWare Workstation.")
+        print("OVFTool not Installed. Please Reinstall VMWare Workstation.")
         exit(0)
+    print("OVFTool Detected")
 
     print("Detecting VMRun ...")
     if(os.path.isfile(vmrun) == False):
-        print("VMRun not Installed. Reinstall VMWare Workstation.")
+        print("VMRun not Installed. Please Reinstall VMWare Workstation.")
         exit(0)
+    print("VMRun Detected")
       
     receive_argu(int(sys.argv[1]))
