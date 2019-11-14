@@ -25,9 +25,14 @@ savename_WS12_url_2 = path.expandvars(r'%APPDATA%\5drone\WS12.part2.rar')
 
 # VM Image가 저장될 환경 변수 경로
 ovf_source_W7 = path.expandvars(r'%appdata%\5drone\5drone_Win7x64.ovf')
-ovf_source_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012.ovf')
+mf_source_W7 = path.expandvars(r'%APPDATA%\5drone\5drone_Win7x64.mf')
+vmdk_source_W7 = path.expandvars(r'%APPDATA%\5drone\5drone_Win7x64-disk1.vmdk')
 appdata_W7 = path.expandvars(r'%appdata%\5drone\5drone_Win7x64\5drone_Win7x64\5drone_Win7x64.vmx')
+ovf_source_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012.ovf')
+mf_source_WS12 = path.expandvars(r'%APPDATA%\5drone\5drone_WinServer2012.mf')
+vmdk_source_WS12 = path.expandvars(r'%APPDATA%\5drone\5drone_WinServer2012-disk1.vmdk')
 appdata_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012\5drone_WinServer2012\5drone_WinServer2012\5drone_WinServer2012.vmx')
+
 
 # ovftool
 ovftool = path.expandvars(r'%ProgramFiles(x86)%\VMware\VMware Workstation\OVFTool\ovftool.exe') 
@@ -56,6 +61,7 @@ def receive_argu(string):
             subprocess.call([ovftool,ovf_source_W7,appdata_W7])
         print("Windows 7 Images Detected. Starting....")
         subprocess.run([vmrun,'-T','ws','start',appdata_W7])
+        Delete_Temp_Files_W7()
     elif (string == 2):
         print("Detecting Windows Server Images that already exists ...")
         if(os.path.isfile(appdata_WS12) == False):
@@ -65,8 +71,38 @@ def receive_argu(string):
             subprocess.call([ovftool,ovf_source_WS12,appdata_WS12])
         print("Windows Server 2012 Images Detected. Starting....")
         subprocess.run([vmrun,'-T','ws','start',appdata_WS12])
+        Delete_Temp_Files_WS12()
     else:
         print("Invalid Argument !!!")
+
+# 임시파일 삭제
+def Delete_Temp_Files_W7():
+    print("Temp Files Deleting ...")
+    if os.path.isfile(savename_W7_url_1):
+        os.remove(savename_W7_url_1)
+    if os.path.isfile(savename_W7_url_2):
+        os.remove(savename_W7_url_2)
+    if os.path.isfile(mf_source_W7):
+        os.remove(mf_source_W7)
+    if os.path.isfile(ovf_source_W7):
+        os.remove(ovf_source_W7)
+    if os.path.isfile(vmdk_source_W7):
+        os.remove(vmdk_source_W7)
+    print("Temp Files Deleted.")
+
+def Delete_Temp_Files_WS12():
+    print("Temp Files Deleting ...")
+    if os.path.isfile(savename_WS12_url_1):
+        os.remove(savename_WS12_url_1)
+    if os.path.isfile(savename_WS12_url_2):
+        os.remove(savename_WS12_url_2)
+    if os.path.isfile(mf_source_WS12):
+        os.remove(mf_source_WS12)
+    if os.path.isfile(ovf_source_WS12):
+        os.remove(ovf_source_WS12)
+    if os.path.isfile(vmdk_source_WS12):
+        os.remove(vmdk_source_WS12)
+    print("Temp Files Deleted.")
 
 # 다운로드 함수
 def download_file(url):
