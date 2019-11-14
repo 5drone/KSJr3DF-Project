@@ -4,7 +4,7 @@
 import os
 from os import path
 import sys
-import urllib.request
+# import urllib.request
 import requests
 from tqdm import tqdm
 import subprocess
@@ -17,6 +17,7 @@ WS12_url_1 = "http://207.148.109.78/WS12.part1.exe"
 WS12_url_2 = "http://207.148.109.78/WS12.part2.rar"
 
 # 저장할 파일이름
+save_file_path = path.expandvars(r'%APPDATA%\5drone')
 savename_W7_url_1 = path.expandvars(r'%APPDATA%\5drone\W7.part1.exe')
 savename_W7_url_2 = path.expandvars(r'%APPDATA%\5drone\W7.part2.rar')
 savename_WS12_url_1 = path.expandvars(r'%APPDATA%\5drone\WS12.part1.exe')
@@ -42,6 +43,10 @@ HASH_WS12_url_2 = "0EE3AB19D48B798358B006C8001126E20853F36E"
 
 # 인자로 받기
 def receive_argu(string):
+    # 경로 확인 후 존재하지 않으면 생성
+    if not(os.path.isdir(save_file_path)):
+            os.makedirs(os.path.join(save_file_path))
+    # 인자 확인 후 다운로드 진행
     if (string == 1):
         print("Detecting Windows Images that already exists ...")
         if(os.path.isfile(appdata_W7) == False):
@@ -93,43 +98,47 @@ def download_file(url):
 def hash_compare(download_file_hash):
     if (download_file_hash == savename_W7_url_1):
         print("Windows 7 VM Image 1/2 Hash Checking...")
-        fh.open(savename_W7_url_1, 'rb')
-        data = fh.read()
-        fh.close()
-        download_file_hash = hashlib.sha1(data).hexdigest()
-        if (download_file_hash != HASH_W7_url_1):
+        download_file_hash = hash_for_largefile(savename_W7_url_1)
+        if (download_file_hash != HASH_W7_url_1.lower()):
             print("Hash does not match. Redownloading...")
             download_file(W7_url_1)
 
     if (download_file_hash == savename_W7_url_2):
         print("Windows 7 VM Image 2/2 Hash Checking...")
-        fh.open(savename_W7_url_2, 'rb')
-        data = fh.read()
-        fh.close()
-        download_file_hash = hashlib.sha1(data).hexdigest()
-        if (download_file_hash != HASH_W7_url_2):
+        download_file_hash = hash_for_largefile(savename_W7_url_2)
+        if (download_file_hash != HASH_W7_url_2.lower()):
             print("Hash does not match. Redownloading...")
             download_file(W7_url_2)
     
     if (download_file_hash == savename_WS12_url_1):
         print("Windows Server 2012 VM 1/2 Image Hash Checking...")
-        fh.open(savename_WS12_url_1, 'rb')
-        data = fh.read()
-        fh.close()
-        download_file_hash = hashlib.sha1(data).hexdigest()
-        if (download_file_hash != HASH_WS12_url_1):
+        download_file_hash = hash_for_largefile(savename_WS12_url_1)
+        if (download_file_hash != HASH_WS12_url_1.lower()):
             print("Hash does not match. Redownloading...")
             download_file(WS12_url_1)
     
     if (download_file_hash == savename_WS12_url_2):
         print("Windows Server 2012 VM 2/2 Image Hash Checking...")
-        fh.open(savename_WS12_url_2, 'rb')
-        data = fh.read()
-        fh.close()
-        download_file_hash = hashlib.sha1(data).hexdigest()
-        if (download_file_hash != HASH_WS12_url_2):
+        download_file_hash = hash_for_largefile(savename_WS12_url_2)
+        if (download_file_hash != HASH_WS12_url_2.lower()):
             print("Hash does not match. Redownloading...")
             download_file(WS12_url_2)
+
+# Buffer를 이용하여 큰 파일 해싱 수행(SHA-1)
+def hash_for_largefile(filepath, blocksize=8192):
+    sha_1 = hashlib.sha1()
+    try:
+        f = open(filepath, "rb")
+    except IOError as e:
+        print("file open error", e)
+        return
+    while True:
+        buf = f.read(blocksize)
+        if not buf:
+            break
+        sha_1.update(buf)
+    f.close()
+    return sha_1.hexdigest()
 
 # 인자별 다운로드
 def download_WIN7():
@@ -163,5 +172,5 @@ if __name__ == '__main__':
         print("VMRun not Installed. Please Reinstall VMWare Workstation.")
         exit(0)
     print("VMRun Detected")
-      
+    
     receive_argu(int(sys.argv[1]))
