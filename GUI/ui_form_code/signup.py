@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\Signup1.ui'
+# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\SignUp.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -11,22 +11,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Dialog(object):
-    def __init__(self):
-        super(Ui_Dialog, self).__init__()
-        self.setupUi(Dialog)
-
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 350)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/dron.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
-        self.PW_Check_editText = QtWidgets.QTextEdit(Dialog)
-        self.PW_Check_editText.setGeometry(QtCore.QRect(100, 130, 180, 40))
-        self.PW_Check_editText.setObjectName("PW_Check_editText")
-        self.Email_editText = QtWidgets.QTextEdit(Dialog)
-        self.Email_editText.setGeometry(QtCore.QRect(100, 180, 180, 40))
-        self.Email_editText.setObjectName("Email_editText")
         self.layoutWidget = QtWidgets.QWidget(Dialog)
         self.layoutWidget.setGeometry(QtCore.QRect(10, 20, 85, 251))
         self.layoutWidget.setObjectName("layoutWidget")
@@ -52,15 +42,6 @@ class Ui_Dialog(object):
         self.Signup_pushButton = QtWidgets.QPushButton(Dialog)
         self.Signup_pushButton.setGeometry(QtCore.QRect(130, 280, 120, 40))
         self.Signup_pushButton.setObjectName("Signup_pushButton")
-        self.Check_Num_editText = QtWidgets.QTextEdit(Dialog)
-        self.Check_Num_editText.setGeometry(QtCore.QRect(100, 230, 180, 40))
-        self.Check_Num_editText.setObjectName("Check_Num_editText")
-        self.PW_editText = QtWidgets.QTextEdit(Dialog)
-        self.PW_editText.setGeometry(QtCore.QRect(100, 80, 180, 40))
-        self.PW_editText.setObjectName("PW_editText")
-        self.ID_editText = QtWidgets.QTextEdit(Dialog)
-        self.ID_editText.setGeometry(QtCore.QRect(100, 30, 180, 40))
-        self.ID_editText.setObjectName("ID_editText")
         self.Check_Num_pusthButton = QtWidgets.QPushButton(Dialog)
         self.Check_Num_pusthButton.setGeometry(QtCore.QRect(285, 230, 110, 40))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -77,8 +58,27 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.Check_Num_trans_pushButton.sizePolicy().hasHeightForWidth())
         self.Check_Num_trans_pushButton.setSizePolicy(sizePolicy)
         self.Check_Num_trans_pushButton.setObjectName("Check_Num_trans_pushButton")
+        self.ID_editText = QtWidgets.QLineEdit(Dialog)
+        self.ID_editText.setGeometry(QtCore.QRect(100, 30, 180, 40))
+        self.ID_editText.setObjectName("ID_editText")
+        self.PW_editText = QtWidgets.QLineEdit(Dialog)
+        self.PW_editText.setGeometry(QtCore.QRect(100, 80, 180, 40))
+        self.PW_editText.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.PW_editText.setObjectName("PW_editText")
+        self.PW_Check_editText = QtWidgets.QLineEdit(Dialog)
+        self.PW_Check_editText.setGeometry(QtCore.QRect(100, 130, 180, 40))
+        self.PW_Check_editText.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.PW_Check_editText.setObjectName("PW_Check_editText")
+        self.Email_editText = QtWidgets.QLineEdit(Dialog)
+        self.Email_editText.setGeometry(QtCore.QRect(100, 180, 180, 40))
+        self.Email_editText.setObjectName("Email_editText")
+        self.Check_Num_editText = QtWidgets.QLineEdit(Dialog)
+        self.Check_Num_editText.setGeometry(QtCore.QRect(100, 230, 180, 40))
+        self.Check_Num_editText.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.Check_Num_editText.setObjectName("Check_Num_editText")
 
         self.retranslateUi(Dialog)
+        self.Check_Num_pusthButton.clicked.connect(Dialog.open)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -99,5 +99,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()
+    ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\Dlg4_Menu4_Evt.ui'
+# Form implementation generated from reading ui file 'C:\Users\sec\PycharmProjects\KSJr3DF-Project\GUI\ui_dir\Dlg0_Signup_Evt.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -11,13 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Dialog(object):
-    def __init__(self):
-        super(Ui_Dialog, self).__init__()
-        self.setupUi(Dialog)
-
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(345, 127)
+        Dialog.resize(300, 110)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/dron.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
@@ -27,30 +23,28 @@ class Ui_Dialog(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(Dialog)
+        self.pushButton.setStyleSheet("background-color: rgb(51, 160, 255);")
+        self.pushButton.setAutoDefault(True)
+        self.pushButton.setDefault(False)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 1, 0, 1, 1)
 
-        self.buttonBox.accepted.connect(self.removeOnCliecked)                    # buttonBox.accepted버튼과 removeOnCliecked함수 연결
-        self.buttonBox.rejected.connect(Dialog.reject)                            # buttonBox.rejected버튼과 Dialog.accept 연결(바로 창 꺼짐)
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "General 5ho"))
-        self.label.setText(_translate("Dialog", "정말 선택한 스냅샷을 초기화하시겠습니까?"))
+        self.label.setText(_translate("Dialog", "인증완료!"))
+        self.pushButton.setText(_translate("Dialog", "OK"))
 
-    # 삭제 버튼 이벤트
-    def removeOnCliecked(self):
-        QtWidgets.QMessageBox.about(None, "스냅샷 초기화", "스냅샷 초기화 가즈아~~")
-        Dialog.close()
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()
+    ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -45,35 +48,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QTextEdit" name="PW_editText">
-   <property name="geometry">
-    <rect>
-     <x>58</x>
-     <y>160</y>
-     <width>210</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Signup_Label">
-   <property name="geometry">
-    <rect>
-     <x>118</x>
-     <y>240</y>
-     <width>64</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>회원가입</string>
-   </property>
-  </widget>
   <widget class="QCheckBox" name="Auto_login_checkBox">
    <property name="geometry">
     <rect>
@@ -87,23 +61,10 @@
     <string>자동 로그인</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="ID_editText">
-   <property name="geometry">
-    <rect>
-     <x>58</x>
-     <y>110</y>
-     <width>210</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Login_pushButton">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>278</x>
@@ -156,19 +117,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="NonMember_Login_Label">
-   <property name="geometry">
-    <rect>
-     <x>208</x>
-     <y>240</y>
-     <width>101</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>비회원 로그인</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="Image1_Label">
    <property name="geometry">
     <rect>
@@ -194,7 +142,65 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="Signup_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>235</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>회원가입</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="NonMember_Login_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>235</y>
+     <width>111</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>비회원 로그인</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ID_editText">
+   <property name="geometry">
+    <rect>
+     <x>58</x>
+     <y>110</y>
+     <width>210</width>
+     <height>38</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PW_editText">
+   <property name="geometry">
+    <rect>
+     <x>58</x>
+     <y>160</y>
+     <width>210</width>
+     <height>38</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>Login_pushButton</tabstop>
+  <tabstop>Auto_login_checkBox</tabstop>
+  <tabstop>Signup_pushButton</tabstop>
+  <tabstop>NonMember_Login_pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

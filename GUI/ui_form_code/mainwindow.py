@@ -8,14 +8,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import GUI.dlg0_signup_evt, GUI.dlg1_menu1_evt, GUI.dlg2_menu2_evt, GUI.dlg3_menu3_evt, GUI.dlg4_menu4_evt
-import GUI.login, GUI.signup, GUI.topology
+from PyQt5.QtWidgets import *
 
-class Ui_MainWindow(object):
-    def __init__(self):
-        super(Ui_MainWindow, self).__init__()
-        self.setupUi(MainWindow)
 
+class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(750, 400)
@@ -57,14 +53,14 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 140, 308))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.Snapshot_scrollArea.setWidget(self.scrollAreaWidgetContents_2)
-        self.Menu1_pushbutton = QtWidgets.QPushButton(self.centralwidget)
-        self.Menu1_pushbutton.setGeometry(QtCore.QRect(0, 0, 60, 40))
+        self.Menu1_pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.Menu1_pushButton.setGeometry(QtCore.QRect(0, 0, 60, 40))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Menu1_pushbutton.sizePolicy().hasHeightForWidth())
-        self.Menu1_pushbutton.setSizePolicy(sizePolicy)
-        self.Menu1_pushbutton.setObjectName("Menu1_pushbutton")
+        sizePolicy.setHeightForWidth(self.Menu1_pushButton.sizePolicy().hasHeightForWidth())
+        self.Menu1_pushButton.setSizePolicy(sizePolicy)
+        self.Menu1_pushButton.setObjectName("Menu1_pushButton")
         self.Menu2_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.Menu2_pushButton.setGeometry(QtCore.QRect(60, 0, 60, 40))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -148,7 +144,7 @@ class Ui_MainWindow(object):
         self.Top_frame.raise_()
         self.WS_scrollArea.raise_()
         self.Snapshot_scrollArea.raise_()
-        self.Menu1_pushbutton.raise_()
+        self.Menu1_pushButton.raise_()
         self.Menu2_pushButton.raise_()
         self.Menu3_pushButton.raise_()
         self.Menu4_pushButton.raise_()
@@ -166,19 +162,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "General 5ho"))
-        self.Menu1_pushbutton.setText(_translate("MainWindow", "menu1"))
+        self.Menu1_pushButton.setText(_translate("MainWindow", "menu1"))
         self.Menu2_pushButton.setText(_translate("MainWindow", "menu2"))
         self.Menu3_pushButton.setText(_translate("MainWindow", "menu3"))
         self.Menu4_pushButton.setText(_translate("MainWindow", "menu4"))
         self.Menu5_pushButton.setText(_translate("MainWindow", "menu5"))
         self.Active_pushButton.setText(_translate("MainWindow", "Active"))
-
-    def login(self):
-        loginDlg = QtWidgets.QDialog()
-        loginui = GUI.login.Ui_Dialog()
-        loginui.setupUi(loginDlg)
-        loginDlg.show()
-        loginDlg.exec_()
 
 
 
@@ -187,6 +176,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
-    #ui.login()
+    ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

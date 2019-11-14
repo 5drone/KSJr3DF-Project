@@ -88,7 +88,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="Menu1_pushbutton">
+   <widget class="QPushButton" name="Menu1_pushButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -312,7 +312,7 @@ background-color: rgb(184, 184, 184);</string>
    <zorder>Top_frame</zorder>
    <zorder>WS_scrollArea</zorder>
    <zorder>Snapshot_scrollArea</zorder>
-   <zorder>Menu1_pushbutton</zorder>
+   <zorder>Menu1_pushButton</zorder>
    <zorder>Menu2_pushButton</zorder>
    <zorder>Menu3_pushButton</zorder>
    <zorder>Menu4_pushButton</zorder>

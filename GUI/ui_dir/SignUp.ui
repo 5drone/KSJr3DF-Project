@@ -17,26 +17,6 @@
    <iconset>
     <normaloff>../icon/dron.jpeg</normaloff>../icon/dron.jpeg</iconset>
   </property>
-  <widget class="QTextEdit" name="PW_Check_editText">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>130</y>
-     <width>180</width>
-     <height>40</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="Email_editText">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>180</y>
-     <width>180</width>
-     <height>40</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -112,36 +92,6 @@
     <string>회원가입</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="Check_Num_editText">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>230</y>
-     <width>180</width>
-     <height>40</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="PW_editText">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>180</width>
-     <height>40</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="ID_editText">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>30</y>
-     <width>180</width>
-     <height>40</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Check_Num_pusthButton">
    <property name="geometry">
     <rect>
@@ -180,7 +130,86 @@
     <string>인증번호 전송</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="ID_editText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>30</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PW_editText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PW_Check_editText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>130</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Email_editText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>180</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Check_Num_editText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>230</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Check_Num_pusthButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot1_test()</slot>
+ </slots>
 </ui>

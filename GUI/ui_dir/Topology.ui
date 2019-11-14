@@ -35,7 +35,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="Finish_pushButton_2">
+   <widget class="QPushButton" name="Finish_pushButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -52,7 +52,7 @@ color: rgb(255, 255, 255);</string>
      <string>완료</string>
     </property>
    </widget>
-   <widget class="QScrollArea" name="Toolbox_scrollArea_2">
+   <widget class="QScrollArea" name="Toolbox_scrollArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -78,7 +78,7 @@ color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QScrollArea" name="First_scrollArea_2">
+   <widget class="QScrollArea" name="First_scrollArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -156,7 +156,7 @@ color: rgb(255, 255, 255);</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="First_Label_2">
+   <widget class="QLabel" name="First_Label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -182,7 +182,7 @@ color: rgb(255, 255, 255);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="Second_Label_2">
+   <widget class="QLabel" name="Second_Label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -208,7 +208,7 @@ color: rgb(255, 255, 255);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="Third_Label_2">
+   <widget class="QLabel" name="Third_Label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -234,7 +234,7 @@ color: rgb(255, 255, 255);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QScrollArea" name="Second_scrollArea_2">
+   <widget class="QScrollArea" name="Second_scrollArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -299,7 +299,7 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </widget>
    </widget>
-   <widget class="QScrollArea" name="Third_scrollArea_2">
+   <widget class="QScrollArea" name="Third_scrollArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -377,7 +377,7 @@ color: rgb(255, 255, 255);</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="Toolbox_Label_2">
+   <widget class="QLabel" name="Toolbox_Label">
     <property name="geometry">
      <rect>
       <x>10</x>

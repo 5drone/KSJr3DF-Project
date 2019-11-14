@@ -11,10 +11,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Dialog(object):
-    def __init__(self):
-        super(Ui_Dialog, self).__init__()
-        self.setupUi(Dialog)
-
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(600, 350)
@@ -92,8 +88,6 @@ class Ui_Dialog(object):
         self.Cancel_pushButton.setStyleSheet("background-color: rgb(51, 160, 255);")
         self.Cancel_pushButton.setObjectName("Cancel_pushButton")
 
-        self.Cancel_pushButton.clicked.connect(self.cancelOnClicked)        # Cancel_pushButton과 cancelOnClicked함수 연결
-        self.Next_pushButton.clicked.connect(self.nextOnClicked)         # Next_pushButton과 nextOnClicked함수 연결
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -106,19 +100,12 @@ class Ui_Dialog(object):
         self.Add_pushButton.setText(_translate("Dialog", "+"))
         self.Cancel_pushButton.setText(_translate("Dialog", "취소"))
 
-    # 취소 버튼 클릭 이벤트
-    def cancelOnClicked(self):
-        Dialog.close()
-        
-    # 다음 버튼 클릭 이벤트
-    def nextOnClicked(self):
-        QtWidgets.QMessageBox.about(None, "다음", "다음")
 
-    
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()
+    ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
