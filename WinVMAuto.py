@@ -26,8 +26,8 @@ savename_WS12_url_2 = path.expandvars(r'%APPDATA%\5drone\WS12.part2.rar')
 # VM Image가 저장될 환경 변수 경로
 ovf_source_W7 = path.expandvars(r'%appdata%\5drone\5drone_Win7x64.ovf')
 ovf_source_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012.ovf')
-appdata_W7 = path.expandvars(r'%appdata%\5drone\5drone_Win7x64\5drone_Win7x64.vmx')
-appdata_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012\5drone_WinServer2012.vmx')
+appdata_W7 = path.expandvars(r'%appdata%\5drone\5drone_Win7x64\5drone_Win7x64\5drone_Win7x64.vmx')
+appdata_WS12 = path.expandvars(r'%appdata%\5drone\5drone_WinServer2012\5drone_WinServer2012\5drone_WinServer2012\5drone_WinServer2012.vmx')
 
 # ovftool
 ovftool = path.expandvars(r'%ProgramFiles(x86)%\VMware\VMware Workstation\OVFTool\ovftool.exe') 
@@ -102,6 +102,7 @@ def hash_compare(download_file_hash):
         if (download_file_hash != HASH_W7_url_1.lower()):
             print("Hash does not match. Redownloading...")
             download_file(W7_url_1)
+        print("Hash Matched! [1/2]")
 
     if (download_file_hash == savename_W7_url_2):
         print("Windows 7 VM Image 2/2 Hash Checking...")
@@ -109,6 +110,7 @@ def hash_compare(download_file_hash):
         if (download_file_hash != HASH_W7_url_2.lower()):
             print("Hash does not match. Redownloading...")
             download_file(W7_url_2)
+        print("Hash Matched! [2/2]")
     
     if (download_file_hash == savename_WS12_url_1):
         print("Windows Server 2012 VM 1/2 Image Hash Checking...")
@@ -116,6 +118,7 @@ def hash_compare(download_file_hash):
         if (download_file_hash != HASH_WS12_url_1.lower()):
             print("Hash does not match. Redownloading...")
             download_file(WS12_url_1)
+        print("Hash Matched! [1/2]")
     
     if (download_file_hash == savename_WS12_url_2):
         print("Windows Server 2012 VM 2/2 Image Hash Checking...")
@@ -123,6 +126,7 @@ def hash_compare(download_file_hash):
         if (download_file_hash != HASH_WS12_url_2.lower()):
             print("Hash does not match. Redownloading...")
             download_file(WS12_url_2)
+        print("Hash Matched! [2/2]")
 
 # Buffer를 이용하여 큰 파일 해싱 수행(SHA-1)
 def hash_for_largefile(filepath, blocksize=8192):
@@ -130,7 +134,7 @@ def hash_for_largefile(filepath, blocksize=8192):
     try:
         f = open(filepath, "rb")
     except IOError as e:
-        print("file open error", e)
+        print("File open error !", e)
         return
     while True:
         buf = f.read(blocksize)
@@ -159,7 +163,7 @@ def download_WINSERVER2012():
 
 # main
 if __name__ == '__main__':
-    print("======== Windows VM Image Auto Download & Converter ========")
+    print("======== Windows VM Auto Launcher ========")
 
     print("Detecting OVFTool ...")
     if(os.path.isfile(ovftool) == False):
