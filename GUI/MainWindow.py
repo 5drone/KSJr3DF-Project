@@ -22,6 +22,9 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         self.Menu5_pushButton.clicked.connect(self.menu5OnClicked)                     # Menu5_pushbutton과 menu5OnClicked함수 연결
         self.Active_pushButton.clicked.connect(self.activeOnClicked)                   # Active_pushButton과 activeOnClicked함수 연결
 
+        self.dialog = GUI.DialogSet.DlgLogin(self)
+        self.dialog.exec_()
+
 
     # menu1버튼 이벤트
     def menu1OnClicked(self):
