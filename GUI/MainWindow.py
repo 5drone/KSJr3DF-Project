@@ -15,6 +15,17 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
 
+        self.text =1
+        self.scrolllayotu = QFormLayout()
+        self.scrollwidget = QWidget()
+        self.scrollwidget.setLayout(self.scrolllayotu)
+        self.WS_scrollArea.setWidget(self.scrollwidget)
+
+        self.scrolllayout2 = QFormLayout()
+        self.scrollwidget1 = QWidget()
+        self.scrollwidget1.setLayout(self.scrolllayout2)
+        self.Snapshot_scrollArea.setWidget(self.scrollwidget1)
+
         self.Menu1_pushButton.clicked.connect(self.menu1OnClicked)                     # Menu1_pushButton과 menu1OnClicked함수 연결
         self.Menu2_pushButton.clicked.connect(self.menu2OnClicked)                     # Menu2_pushbutton과 menu2OnClicked함수 연결
         self.Menu3_pushButton.clicked.connect(self.menu3OnClicked)                     # Menu3_pushbutton과 menu3OnClicked함수 연결
@@ -43,12 +54,35 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
 
     # menu4버튼 이벤트
     def menu4OnClicked(self):
+        self.l2 = QPushButton()
+        self.l2.setText(str(self.text))
+        self.l2.clicked.connect(self.dummyEvent)
+        self.text+=1
+        self.scrolllayout2.addRow(self.l2)
+        """"
         dialog4 = GUI.DialogSet.DlgMenu4Evt(self)
         dialog4.exec_()
+        """
+    # dummy event
+    def dummyEvent(self):
+        self.l2.setCheckable(True)
+
 
     # menu5버튼 이벤트
     def menu5OnClicked(self):
-        QtWidgets.QMessageBox.about(None, "menu5", "menu5")
+        if self.l2.isChecked() == True:
+            self.l2.deleteLater()
+            QtWidgets.QMessageBox.about(None, "dumy", "good")
+        else:
+            QtWidgets.QMessageBox.about(None, "dumy", "nop")
+        """
+        #self.WS_scrollArea.setWidgetResizable(False)
+        l1 = QLabel()
+        l1.setText(str(self.text))
+        self.text+=1
+        self.scrolllayotu.addRow(l1)
+        """
+        #QtWidgets.QMessageBox.about(None, "menu5", "menu5")
 
     # Active버튼 이벤트
     def activeOnClicked(self):
@@ -58,8 +92,9 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MyWindow()
-    main.show()
-    app.exec_()
+    if main.dialog.result == 1:
+        main.show()
+        app.exec_()
 
 
 if __name__ == "__main__":

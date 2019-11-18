@@ -29,6 +29,8 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         QDialog.__init__(self, parent)
         self.setupUi(self)
 
+        self.ws_name=None
+
         self.Cancel_pushButton.clicked.connect(self.cancelOnClicked)            # Cancel_pushButton과 cancelOnClicked함수 연결
         self.Next_pushButton.clicked.connect(self.nextOnClicked)                # Next_pushButton과 nextOnClicked함수 연결
         self.one_to_two_pushButton.clicked.connect(self.oneTotwoOnClicekd)      # one_to_two_pushButton과 oneTotwoOnClicekd함수 연결
@@ -40,9 +42,11 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
 
     # 다음 버튼 클릭 이벤트
     def nextOnClicked(self):
+        self.ws_name = self.WS_Name_editText.text()
         self.close()
         topology_dialog = DlgTopology()
         topology_dialog.exec_()
+
 
     # 1 to 2 버튼 클릭 이벤트
     def oneTotwoOnClicekd(self):
@@ -116,9 +120,9 @@ class DlgLogin(QDialog, GUI.ui_form_code.login.Ui_Dialog):
         if result == False:
             QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패다~ 이 ~ 개 쉐이야")
         elif login[0] == result[0][0] and login[1] == result[0][1]:
+            self.result=1
             self.close()
-            #mainwindow = GUI.MainWindow.MyWindow(self)
-            #mainwindow.show()
+            return self.result
         else:
             QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패다~ 이 ~ 개 쉐이야")
 
@@ -126,12 +130,14 @@ class DlgLogin(QDialog, GUI.ui_form_code.login.Ui_Dialog):
     def signuppushOnClicked(self):
         signup_dialog = DlgSignup(self)
         signup_dialog.exec_()
+        self.result=1
+        return self.result
 
     # NonMember Login버튼 이벤트
     def NonMemeberpushOnClicked(self):
+        self.result=1
         self.close()
-        #mainwindow = GUI.MainWindow.MyWindow(self)
-        #mainwindow.show()
+        return self.result
 
 
 # Signup Input Form Dialog
@@ -225,8 +231,6 @@ class DlgTopology(QDialog, GUI.ui_form_code.topology.Ui_Dialog):
     def finishOnClicked(self):
         QtWidgets.QMessageBox.about(None, "설정완료","설정완료")
         self.close()
-        mainwinodw = GUI.MainWindow.MyWindow(self)
-        mainwinodw.show()
 
 
 # Dialog 테스트 함수
@@ -245,6 +249,7 @@ def main():
     #Dialog = DlgTopology()
     Dialog.show()
     app.exec_()
+    print(Dialog.result)
 
 
 if __name__ == "__main__":

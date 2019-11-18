@@ -109,36 +109,10 @@
      <normaloff>../icon/arrow.png</normaloff>../icon/arrow.png</iconset>
    </property>
   </widget>
-  <widget class="QTextEdit" name="WS_Name_editText">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>30</y>
-     <width>150</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-  </widget>
   <widget class="QSpinBox" name="Group_List_spinBox1">
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>80</y>
-     <width>150</width>
-     <height>30</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="Group_List_editText">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
      <y>80</y>
      <width>150</width>
      <height>30</height>
@@ -235,6 +209,26 @@
    </property>
    <property name="text">
     <string>취소</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="WS_Name_editText">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>30</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Group_List_editText">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
    </property>
   </widget>
  </widget>
