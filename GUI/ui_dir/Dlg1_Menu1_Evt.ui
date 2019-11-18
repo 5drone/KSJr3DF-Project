@@ -109,16 +109,6 @@
      <normaloff>../icon/arrow.png</normaloff>../icon/arrow.png</iconset>
    </property>
   </widget>
-  <widget class="QSpinBox" name="Group_List_spinBox1">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>80</y>
-     <width>150</width>
-     <height>30</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="one_to_two_pushButton">
    <property name="geometry">
     <rect>
@@ -172,16 +162,6 @@
     <string>이름</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="Group_List_spinBox2">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>80</y>
-     <width>150</width>
-     <height>30</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Add_pushButton">
    <property name="geometry">
     <rect>
@@ -229,6 +209,35 @@
      <width>150</width>
      <height>30</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Group_List_comboBox1">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>80</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Group_List_comboBox2">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>80</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
+   <property name="currentText">
+    <string/>
    </property>
   </widget>
  </widget>

@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore
 import sys
+from collections import OrderedDict
 import GUI.ui_form_code.dlg0_signup_evt, GUI.ui_form_code.dlg1_menu1_evt
 import GUI.ui_form_code.dlg2_menu2_evt, GUI.ui_form_code.dlg3_menu3_evt
 import GUI.ui_form_code.dlg4_menu4_evt, GUI.ui_form_code.login
@@ -30,17 +31,58 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         QDialog.__init__(self, parent)
         self.setupUi(self)
 
+        # workspace name 저장 변수
+        self.ws_name=None
+
+        # combox1 item list
+        self.items1 = OrderedDict([
+            ('select', ''),
+            ('김종우', ''),
+            ('민준영', ''),
+            ('윤영기', ''),
+            ('이영진', ''),
+            ('최민철', '')
+        ])
+
+        # combox2 item list
+        self.items1 = OrderedDict([
+            ('select', ''),
+            ('김종우', ''),
+            ('민준영', ''),
+            ('윤영기', ''),
+            ('이영진', ''),
+            ('최민철', '')
+        ])
+
+        # ComboBox에 아이템 추가
+        self.Group_List_comboBox1.addItems(self.items1.keys())
+        self.Group_List_comboBox2.addItems(self.items1.keys())
+
+        # combo box 선택 이벤트 연결
+        self.Group_List_comboBox1.currentTextChanged.connect(self.cb1InputText)
+        self.Group_List_comboBox2.currentTextChanged.connect(self.cb2InputText)
+
         # ListScrollArea1 목록 레이아웃 설정
         self.scrolllayout1 = QFormLayout()
         self.scrollwidget1 = QWidget()
         self.scrollwidget1.setLayout(self.scrolllayout1)
         self.List_scrollArea1.setWidget(self.scrollwidget1)
 
+        # ListScrollArea2 목록 레이아웃 설정
+        self.scrolllayout2 = QFormLayout()
+        self.scrollwidget2 = QWidget()
+        self.scrollwidget2.setLayout(self.scrolllayout2)
+        self.List_scrollArea2.setWidget(self.scrollwidget2)
+
+        # ListScrollArea3 목록 레이아웃 설정
+        self.scrolllayout3 = QFormLayout()
+        self.scrollwidget3 = QWidget()
+        self.scrollwidget3.setLayout(self.scrolllayout3)
+        self.List_scrollArea3.setWidget(self.scrollwidget3)
+
         # Popup Menu Setting
         self.popMenu = QMenu(self)
         self.deleteAction = self.popMenu.addAction("삭제하기")
-
-        self.ws_name=None               # workspace name 저장 변수
 
         self.Cancel_pushButton.clicked.connect(self.cancelOnClicked)            # Cancel_pushButton과 cancelOnClicked함수 연결
         self.Next_pushButton.clicked.connect(self.nextOnClicked)                # Next_pushButton과 nextOnClicked함수 연결
@@ -73,14 +115,42 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         self.grouplist = QPushButton()
         self.grouplist.setText(str(self.Group_List_editText.text()))
         self.grouplist.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
-        self.grouplist.customContextMenuRequested.connect(self.on_context_menu)
+        self.grouplist.customContextMenuRequested.connect(self.on_context_menu1)
         self.scrolllayout1.addRow(self.grouplist)
 
+    # combobox1 input text 함수
+    def cb1InputText(self):
+        self.grouplist1 = QPushButton()
+        self.grouplist1.setText(str(self.Group_List_comboBox1.currentText()))
+        self.grouplist1.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        self.grouplist1.customContextMenuRequested.connect(self.on_context_menu2)
+        self.scrolllayout2.addRow(self.grouplist1)
+
+    # combobox2 input text 함수
+    def cb2InputText(self):
+        self.grouplist2 = QPushButton()
+        self.grouplist2.setText(str(self.Group_List_comboBox2.currentText()))
+        self.grouplist2.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        self.grouplist2.customContextMenuRequested.connect(self.on_context_menu3)
+        self.scrolllayout3.addRow(self.grouplist2)
+
     # grouplist context menu
-    def on_context_menu(self, point):
+    def on_context_menu1(self, point):
         self.action = self.popMenu.exec_(self.grouplist.mapToGlobal(point))
         if self.action == self.deleteAction:
             self.grouplist.deleteLater()
+
+    # combobox1 context menu
+    def on_context_menu2(self, point):
+        self.action = self.popMenu.exec_(self.grouplist1.mapToGlobal(point))
+        if self.action == self.deleteAction:
+            self.grouplist1.deleteLater()
+
+    # combobox2 context menu
+    def on_context_menu3(self, point):
+        self.action = self.popMenu.exec_(self.grouplist2.mapToGlobal(point))
+        if self.action == self.deleteAction:
+            self.grouplist2.deleteLater()
 
 
 
