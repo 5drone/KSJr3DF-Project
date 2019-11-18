@@ -104,7 +104,11 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>menu1</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/menu1.png</normaloff>../icon/menu1.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="Menu2_pushButton">
@@ -123,7 +127,11 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>menu2</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/menu2.png</normaloff>../icon/menu2.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="Menu3_pushButton">
@@ -142,7 +150,11 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>menu3</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/menu3.png</normaloff>../icon/menu3.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="Menu4_pushButton">
@@ -161,7 +173,11 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>menu4</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/menu4.png</normaloff>../icon/menu4.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="Menu5_pushButton">
@@ -180,7 +196,11 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>menu5</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icon/menu5.png</normaloff>../icon/menu5.png</iconset>
     </property>
    </widget>
    <widget class="QLabel" name="Preview_Label">

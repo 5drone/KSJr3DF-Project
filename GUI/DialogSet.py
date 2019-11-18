@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
+from PyQt5 import QtCore, QtGui
 import sys
 import GUI.ui_form_code.dlg0_signup_evt, GUI.ui_form_code.dlg1_menu1_evt
 import GUI.ui_form_code.dlg2_menu2_evt, GUI.ui_form_code.dlg3_menu3_evt
@@ -29,12 +30,23 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         QDialog.__init__(self, parent)
         self.setupUi(self)
 
-        self.ws_name=None
+        # ListScrollArea1 목록 레이아웃 설정
+        self.scrolllayout1 = QFormLayout()
+        self.scrollwidget1 = QWidget()
+        self.scrollwidget1.setLayout(self.scrolllayout1)
+        self.List_scrollArea1.setWidget(self.scrollwidget1)
+
+        # Popup Menu Setting
+        self.popMenu = QMenu(self)
+        self.deleteAction = self.popMenu.addAction("삭제하기")
+
+        self.ws_name=None               # workspace name 저장 변수
 
         self.Cancel_pushButton.clicked.connect(self.cancelOnClicked)            # Cancel_pushButton과 cancelOnClicked함수 연결
         self.Next_pushButton.clicked.connect(self.nextOnClicked)                # Next_pushButton과 nextOnClicked함수 연결
         self.one_to_two_pushButton.clicked.connect(self.oneTotwoOnClicekd)      # one_to_two_pushButton과 oneTotwoOnClicekd함수 연결
         self.two_to_three_pushButton.clicked.connect(self.twoTothreeOnClicekd)  # two_to_three_pushButton과 oneTotwoOnClicekd함수 연결
+        self.Group_List_editText.returnPressed.connect(self.glEditPressEnter)
 
     # 취소 버튼 클릭 이벤트
     def cancelOnClicked(self):
@@ -46,7 +58,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         self.close()
         topology_dialog = DlgTopology()
         topology_dialog.exec_()
-
+        return self.ws_name
 
     # 1 to 2 버튼 클릭 이벤트
     def oneTotwoOnClicekd(self):
@@ -55,6 +67,21 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
     # 2 to 3 버튼 클릭 이벤트
     def twoTothreeOnClicekd(self):
         QtWidgets.QMessageBox.about(None, "2to3", "2to3")
+
+    # Group_List_editText Enter 키 이벤트
+    def glEditPressEnter(self):
+        self.grouplist = QPushButton()
+        self.grouplist.setText(str(self.Group_List_editText.text()))
+        self.grouplist.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        self.grouplist.customContextMenuRequested.connect(self.on_context_menu)
+        self.scrolllayout1.addRow(self.grouplist)
+
+    # grouplist context menu
+    def on_context_menu(self, point):
+        self.action = self.popMenu.exec_(self.grouplist.mapToGlobal(point))
+        if self.action == self.deleteAction:
+            self.grouplist.deleteLater()
+
 
 
 # MainWinodw Menu2 클릭 Dialog
@@ -70,6 +97,8 @@ class DlgMenu2Evt(QDialog, GUI.ui_form_code.dlg2_menu2_evt.Ui_Dialog):
     def removeOnCliecked(self):
         QtWidgets.QMessageBox.about(None, "워크스페이스삭제", "워크스페이스 삭제 가즈아~~")
         self.close()
+        self.result = 1
+        return self.result
 
 
 # MainWinodw Menu3 클릭 Dialog
@@ -85,6 +114,8 @@ class DlgMenu3Evt(QDialog, GUI.ui_form_code.dlg3_menu3_evt.Ui_Dialog):
     def removeOnCliecked(self):
         QtWidgets.QMessageBox.about(None, "스냅샷 삭제", "스냅샷 삭제 가즈아~~")
         self.close()
+        self.result = 1
+        return self.result
 
 
 # MainWinodw Menu4 클릭 Dialog
@@ -99,6 +130,8 @@ class DlgMenu4Evt(QDialog, GUI.ui_form_code.dlg4_menu4_evt.Ui_Dialog):
     def removeOnCliecked(self):
         QtWidgets.QMessageBox.about(None, "스냅샷 초기화", "스냅샷 초기화 가즈아~~")
         self.close()
+        self.result = 1
+        return self.result
 
 # Login Input Form Dialog
 class DlgLogin(QDialog, GUI.ui_form_code.login.Ui_Dialog):
@@ -193,15 +226,18 @@ class DlgSignup(QDialog, GUI.ui_form_code.signup.Ui_Dialog):
         else:
             self.flag.insert(3,0)
 
+    # 인증번호 전송 함수
     def checkTransOnClicked(self):
         self.gmail = Mail.mailconfig.MailController(self.Email_editText.text())
         self.gmail.sendmail()
         QtWidgets.QMessageBox.about(None, "인증번호 전송", "인증번호 전송완료")
 
+    # 회원가입 버튼 클릭 이벤트
     def signupOnClicked(self):
         self.checkID()
         self.checkPW()
         self.checkBlank()
+        # 유효성 검증
         if self.flag[0] == 1:
             QtWidgets.QMessageBox.about(None, "#1", "인증번호가 유효하지 않습니다")
         elif self.flag[1] == 2:
@@ -239,12 +275,12 @@ def main():
 
     # 다이얼로그 선택
     #Dialog = DlgSignupEvt()
-    #Dialog = DlgMenu1Evt()
+    Dialog = DlgMenu1Evt()
     #Dialog = DlgMenu2Evt()
     #Dialog = DlgMenu3Evt()
     #Dialog = DlgMenu4Evt()
 
-    Dialog = DlgLogin()
+    #Dialog = DlgLogin()
     #Dialog = DlgSignup()
     #Dialog = DlgTopology()
     Dialog.show()

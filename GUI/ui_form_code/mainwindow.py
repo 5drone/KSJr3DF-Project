@@ -8,10 +8,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import *
 
 
-class Ui_MainWindow(QWidget):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(750, 400)
@@ -60,6 +59,10 @@ class Ui_MainWindow(QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Menu1_pushButton.sizePolicy().hasHeightForWidth())
         self.Menu1_pushButton.setSizePolicy(sizePolicy)
+        self.Menu1_pushButton.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/menu1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Menu1_pushButton.setIcon(icon1)
         self.Menu1_pushButton.setObjectName("Menu1_pushButton")
         self.Menu2_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.Menu2_pushButton.setGeometry(QtCore.QRect(60, 0, 60, 40))
@@ -68,6 +71,10 @@ class Ui_MainWindow(QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Menu2_pushButton.sizePolicy().hasHeightForWidth())
         self.Menu2_pushButton.setSizePolicy(sizePolicy)
+        self.Menu2_pushButton.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/menu2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Menu2_pushButton.setIcon(icon2)
         self.Menu2_pushButton.setObjectName("Menu2_pushButton")
         self.Menu3_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.Menu3_pushButton.setGeometry(QtCore.QRect(120, 0, 60, 40))
@@ -76,6 +83,10 @@ class Ui_MainWindow(QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Menu3_pushButton.sizePolicy().hasHeightForWidth())
         self.Menu3_pushButton.setSizePolicy(sizePolicy)
+        self.Menu3_pushButton.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/menu3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Menu3_pushButton.setIcon(icon3)
         self.Menu3_pushButton.setObjectName("Menu3_pushButton")
         self.Menu4_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.Menu4_pushButton.setGeometry(QtCore.QRect(180, 0, 60, 40))
@@ -84,6 +95,10 @@ class Ui_MainWindow(QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Menu4_pushButton.sizePolicy().hasHeightForWidth())
         self.Menu4_pushButton.setSizePolicy(sizePolicy)
+        self.Menu4_pushButton.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/menu4.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Menu4_pushButton.setIcon(icon4)
         self.Menu4_pushButton.setObjectName("Menu4_pushButton")
         self.Menu5_pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.Menu5_pushButton.setGeometry(QtCore.QRect(240, 0, 60, 40))
@@ -92,6 +107,10 @@ class Ui_MainWindow(QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Menu5_pushButton.sizePolicy().hasHeightForWidth())
         self.Menu5_pushButton.setSizePolicy(sizePolicy)
+        self.Menu5_pushButton.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("C:\\Users\\sec\\PycharmProjects\\KSJr3DF-Project\\GUI\\ui_dir\\../icon/menu5.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Menu5_pushButton.setIcon(icon5)
         self.Menu5_pushButton.setObjectName("Menu5_pushButton")
         self.Preview_Label = QtWidgets.QLabel(self.centralwidget)
         self.Preview_Label.setGeometry(QtCore.QRect(270, 60, 310, 310))
@@ -162,13 +181,7 @@ class Ui_MainWindow(QWidget):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "General 5ho"))
-        self.Menu1_pushButton.setText(_translate("MainWindow", "menu1"))
-        self.Menu2_pushButton.setText(_translate("MainWindow", "menu2"))
-        self.Menu3_pushButton.setText(_translate("MainWindow", "menu3"))
-        self.Menu4_pushButton.setText(_translate("MainWindow", "menu4"))
-        self.Menu5_pushButton.setText(_translate("MainWindow", "menu5"))
         self.Active_pushButton.setText(_translate("MainWindow", "Active"))
-
 
 
 if __name__ == "__main__":
