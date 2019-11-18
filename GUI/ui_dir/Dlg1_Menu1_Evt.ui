@@ -212,6 +212,9 @@
    </property>
   </widget>
   <widget class="QComboBox" name="Group_List_comboBox1">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -221,10 +224,13 @@
     </rect>
    </property>
    <property name="editable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QComboBox" name="Group_List_comboBox2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -234,7 +240,7 @@
     </rect>
    </property>
    <property name="editable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="currentText">
     <string/>

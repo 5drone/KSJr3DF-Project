@@ -45,11 +45,12 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         dialog1 = GUI.DialogSet.DlgMenu1Evt(self)
         dialog1.exec_()
 
-        # WorkSpace 목록 버튼 scrolllayout1에 추가
-        self.ws_name_list = QPushButton()
-        self.ws_name_list.setText(str(dialog1.ws_name))
-        self.ws_name_list.clicked.connect(self.wsClcikCheck)
-        self.scrolllayout1.addRow(self.ws_name_list)
+        # 워크 스페이스 이름 작성한 경우에만 생성
+        if dialog1.ws_name != None:
+            # WorkSpace 목록 버튼 scrolllayout1에 추가
+            tmp_button = QCheckBox()
+            tmp_button.setText(str(dialog1.ws_name))
+            self.scrolllayout1.addRow(tmp_button)
 
     # menu2버튼 이벤트
     def menu2OnClicked(self):
@@ -57,9 +58,14 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         dialog2 = GUI.DialogSet.DlgMenu2Evt(self)
         dialog2.exec_()
 
-        # 선택된 워크스페이스 목록 삭제
-        if self.ws_name_list.isChecked() == True and dialog2.result == 1:
-            self.ws_name_list.deleteLater()
+        print("dialog2.result=", dialog2.result)
+        if dialog2.result == 1:
+            print("scrolllayout Count : ", self.scrolllayout1.count())
+            for count_index in range(self.scrolllayout1.count()):
+                print("count index : ", count_index)
+                child = self.scrolllayout1.itemAt(count_index)
+                if child.widget().isChecked():
+                    child.widget().deleteLater()
 
     # menu3버튼 이벤트
     def menu3OnClicked(self):
@@ -79,7 +85,6 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         dialog4 = GUI.DialogSet.DlgMenu4Evt(self)
         dialog4.exec_()
 
-
     # menu5버튼 이벤트
     def menu5OnClicked(self):
         QtWidgets.QMessageBox.about(None, "active", "active")
@@ -90,7 +95,28 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
 
     # WorkSpace Click Check 함수
     def wsClcikCheck(self):
-        self.ws_name_list.setCheckable(True)
+        self.work_space_set[self.work_index].setCheckable(True)
+        print(self.work_index)
+
+        """
+        if self.work_space_set[self.work_index][1] == 0:
+            self.work_space_set[self.work_index][1] = 1
+        else:
+            self.work_space_set[self.work_index][1] = 0
+        print(self.work_space_set)
+        """
+        """
+        flag=0
+        
+        for wsindex in range(self.work_index+1):
+            print(wsindex)
+            if self.work_space_set[wsindex].isChecked() == True:
+                self.work_space_set[wsindex].setCheckable(False)
+                self.work_space_set[self.work_index].setCheckable(True)
+                flag=1
+        if flag == 0:
+            self.work_space_set[self.work_index].setCheckable(True)
+        """
 
     # Snapshot Click Check 함수
     def snClcikCheck(self):

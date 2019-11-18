@@ -45,7 +45,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         ])
 
         # combox2 item list
-        self.items1 = OrderedDict([
+        self.items2 = OrderedDict([
             ('select', ''),
             ('김종우', ''),
             ('민준영', ''),
@@ -56,7 +56,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
 
         # ComboBox에 아이템 추가
         self.Group_List_comboBox1.addItems(self.items1.keys())
-        self.Group_List_comboBox2.addItems(self.items1.keys())
+        self.Group_List_comboBox2.addItems(self.items2.keys())
 
         # combo box 선택 이벤트 연결
         self.Group_List_comboBox1.currentTextChanged.connect(self.cb1InputText)
@@ -104,11 +104,11 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
 
     # 1 to 2 버튼 클릭 이벤트
     def oneTotwoOnClicekd(self):
-        QtWidgets.QMessageBox.about(None, "1to2", "1to2")
+        self.Group_List_comboBox1.setEnabled(True)
 
     # 2 to 3 버튼 클릭 이벤트
     def twoTothreeOnClicekd(self):
-        QtWidgets.QMessageBox.about(None, "2to3", "2to3")
+        self.Group_List_comboBox2.setEnabled(True)
 
     # Group_List_editText Enter 키 이벤트
     def glEditPressEnter(self):
