@@ -58,11 +58,9 @@ class MyWindow(QMainWindow, GUI.ui_form_code.mainwindow.Ui_MainWindow):
         dialog2 = GUI.DialogSet.DlgMenu2Evt(self)
         dialog2.exec_()
 
-        print("dialog2.result=", dialog2.result)
+        # 선택한 WorkSpace 목록 삭제
         if dialog2.result == 1:
-            print("scrolllayout Count : ", self.scrolllayout1.count())
             for count_index in range(self.scrolllayout1.count()):
-                print("count index : ", count_index)
                 child = self.scrolllayout1.itemAt(count_index)
                 if child.widget().isChecked():
                     child.widget().deleteLater()
