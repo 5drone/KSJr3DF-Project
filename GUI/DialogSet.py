@@ -15,7 +15,6 @@ import Mail.mailconfig
 # UI 코드 -> ui_form_code 밑에 저장
 # 모든 Dialog 테스트 및 구현 부분
 
-
 # 회원가입 인증완료 Dialog
 class DlgSignupEvt(QDialog, GUI.ui_form_code.dlg0_signup_evt.Ui_Dialog):
     def __init__(self, parent=None):
@@ -34,26 +33,15 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         # workspace 저장 변수
         self.ws_name=None
 
+        # 1 to 2 event 중복 검증 저장 임시변수
         self.before_index=None
         self.after_index=None
 
-        """
-        # combox1 item list
-        self.items1 = OrderedDict([
-             ('select', ''),
-            ('김종우', ''),
-            ('민준영', ''),
-            ('윤영기', ''),
-            ('이영진', ''),
-            ('최민철', '')
-        ])
-        """
+        # 구성요소 목록
+        self.comp_list = ["Ubuntu", "Kali", "Bee", "Windows", "Meta", "VyOS", "Security Onion"]
 
-        # ComboBox에 아이템 추가
-        #self.Group_List_comboBox1.addItems(self.items1.keys())
-
-        # combo box 선택 이벤트 연결
-        #self.Group_List_comboBox1.currentTextChanged.connect(self.cb1InputText)
+        # 활성화 구성요소 및 그룹명, 개수 저장 리스트 / 포맷 형식 (그룹명-구성요소-개수)
+        self.comp_group_list=[]
 
         # ListScrollArea1 목록 레이아웃 설정
         self.scrolllayout1 = QFormLayout()
@@ -83,7 +71,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         self.two_to_three_pushButton.clicked.connect(self.twoTothreeOnClicekd)  # two_to_three_pushButton과 oneTotwoOnClicekd함수 연결
         self.Group_List_editText.returnPressed.connect(self.glEditPressEnter)   # Group_List_editText과 glEditPressEnter함수 연결
         self.Group_delete_pushButton.clicked.connect(self.groupDelete)          # Group_delete_pushButton과 groupDelete함수 연결
-
+        self.Group_List_comboBox.currentTextChanged.connect(self.cbInputText)   # Group_List_comboBox과 cbInputText함수 연결
 
     # 취소 버튼 클릭 이벤트
     def cancelOnClicked(self):
@@ -116,39 +104,44 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
                 del_child.widget().deleteLater()
 
             # 구성요소 목록 설정
-            comp_list = ["김종우", "민준영","이영진","윤영기","최민철"]
-            for j in comp_list:
+            for j in self.comp_list:
                 tmp_button = QCheckBox()
                 before_child = self.scrolllayout1.itemAt(self.before_index)
-                tmp_button.setText(j+"-%s"%before_child.widget().text())
+                tmp_button.setText(j+"-%s"%before_child.widget().text())        # 포맷 형식 : 그룹이름-구성요소
                 self.scrolllayout2.addRow(tmp_button)
         elif flag > 1:
             QtWidgets.QMessageBox.about(None, "하나만 선택해", "하나만")
-        else:
-            QtWidgets.QMessageBox.about(None, "1", "1")
 
     # 2 to 3 버튼 클릭 이벤트
     def twoTothreeOnClicekd(self):
+        # exception value
+        flag = 0
+        # combo tmp item list
+        cb_tmp_list = []
 
-        # combox2 item list
-        tmp_list = []
+        # ScrollLayout2에 활성화 된 구성요소 및 그룹명 리스트에 저장
         for count_index in range(self.scrolllayout2.count()):
             child = self.scrolllayout2.itemAt(count_index)
             if child.widget().isChecked():
-                tmp_list.append((str(child.widget().text()),''))
-        """
-        tmp_list.append(('김종우', ''))
-        tmp_list.append(('최민철', ''))
-        tmp_list.append(('최민철', ''))
-        tmp_list.append(('최민철', ''))
-        """
+                self.comp_group_list.append((child.widget().text()+'-1').split('-'))    # 포맷 형식 : 그룹이름-구성요소-개수
+                flag=flag+1
+                print(self.comp_group_list)
 
-        self.items2 = OrderedDict(tmp_list)
+        # ScrollLayout2에 선택된 구성요소 없는경우 예외처리
+        if flag == 0:
+            flag=0
+            return
 
+        # 선택한 그룹명 tmp_list에 저장
+        for count_index in range(self.scrolllayout1.count()):
+            child = self.scrolllayout1.itemAt(count_index)
+            if child.widget().isChecked():
+                cb_tmp_list.append((str(child.widget().text()),''))
+                break
+
+        self.combo_items = OrderedDict(cb_tmp_list)
         # ComboBox에 아이템 추가
-        self.Group_List_comboBox.addItems(self.items2.keys())
-        # combo box 선택 이벤트 연결
-        self.Group_List_comboBox.currentTextChanged.connect(self.cb2InputText)
+        self.Group_List_comboBox.addItems(self.combo_items.keys())
         # combo box 활성화
         self.Group_List_comboBox.setEnabled(True)
 
@@ -156,40 +149,42 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
     def glEditPressEnter(self):
         self.grouplist = QCheckBox()
         self.grouplist.setText(str(self.Group_List_editText.text()))
-        self.grouplist.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         self.scrolllayout1.addRow(self.grouplist)
 
-    # combobox2 input text 함수
-    def cb2InputText(self):
-        self.grouplist2 = QPushButton()
-        self.grouplist2.setText(str(self.Group_List_comboBox.currentText()))
-        self.grouplist2.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
-        self.grouplist2.customContextMenuRequested.connect(self.on_context_menu3)
-        self.scrolllayout3.addRow(self.grouplist2)
+    # combobox input text 함수
+    def cbInputText(self):
+        if self.scrolllayout3.count() > 0:
+            # 그룹에 따라 구성요소를 나타내기 위해 먼저 초기화
+            for count_index in range(self.scrolllayout3.count()):
+                child = self.scrolllayout3.itemAt(count_index)
+                child.widget().deleteLater()
 
-    # combobox2 context menu
-    def on_context_menu3(self, point):
-        self.action = self.popMenu.exec_(self.grouplist2.mapToGlobal(point))
-        if self.action == self.deleteAction:
-            self.grouplist2.deleteLater()
+        # 초기화 후 그룹에 따라 구성요소 목록 설정
+        for count_index in range(len(self.comp_group_list)):
+            if self.comp_group_list[count_index][1] == self.Group_List_comboBox.currentText():
+                self.grouplist3 = QCheckBox()
+                self.grouplist3.setText(str(self.comp_group_list[count_index][0])+'-'+str(self.comp_group_list[count_index][1])+'-'+str(self.comp_group_list[count_index][2]))
+                self.scrolllayout3.addRow(self.grouplist3)
 
     # 그룹 선택 삭제 함수
     def groupDelete(self):
-        # 해당 그룹 목록 탐색하여 삭제
+        # 해당 그룹 목록 탐색하여 삭제(ScrollLayout1)
         for count_index in range(self.scrolllayout1.count()):
             child = self.scrolllayout1.itemAt(count_index)
             if child.widget().isChecked():
                 tmp_group_name = child.widget().text()
                 child.widget().deleteLater()
 
-        # 해당 그룹이 구성요소 목록에 활성화 된 경우 전부 다 삭제(같은 그룹만)
+        # 해당 그룹이 구성요소 목록에 활성화 된 경우 전부 다 삭제(같은 그룹만)(ScrollLayout2)
         if self.scrolllayout2.count() > 0 :
             for count_index in range(self.scrolllayout2.count()):
                 child = self.scrolllayout2.itemAt(count_index)
-
-                if tmp_group_name == child.widget().text()[4:]:
+                if tmp_group_name == child.widget().text().split('-')[1]:
                     child.widget().deleteLater()
 
+        # ComboBox 및 ScrollLayout3에 연관된 내용 전부 삭제
+        combo_index = self.Group_List_comboBox.findText(tmp_group_name)
+        self.Group_List_comboBox.removeItem(combo_index)
 
 # MainWinodw Menu2 클릭 Dialog
 class DlgMenu2Evt(QDialog, GUI.ui_form_code.dlg2_menu2_evt.Ui_Dialog):
@@ -369,6 +364,8 @@ class DlgTopology(QDialog, GUI.ui_form_code.topology.Ui_Dialog):
         self.setupUi(self)
 
         self.Finish_pushButton.clicked.connect(self.finishOnClicked)            # Finish_pushButton과 finishOnClicked함수 연결
+        Dialog = DlgMenu1Evt()
+        print(Dialog.comp_group_list)
 
     # 완료 버튼 이벤트
     def finishOnClicked(self):
