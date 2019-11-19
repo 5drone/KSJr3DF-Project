@@ -211,23 +211,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="Group_List_comboBox1">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>80</y>
-     <width>150</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="editable">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="Group_List_comboBox2">
+  <widget class="QComboBox" name="Group_List_comboBox">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -244,6 +228,46 @@
    </property>
    <property name="currentText">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Group_List_Label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>80</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>구성요소 목록</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Group_delete_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>그룹 삭제</string>
    </property>
   </widget>
  </widget>
