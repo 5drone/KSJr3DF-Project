@@ -5,6 +5,7 @@ import os
 from os import path
 import sys
 import subprocess
+import time
 
 # Docker Toolbox 경로
 dockertbx = path.expandvars(r'%ProgramFiles%\Docker Toolbox')
@@ -16,7 +17,8 @@ rVNCviewer = path.expandvars(r'%ProgramFiles%\RealVNC\VNC Viewer\vncviewer.exe')
 WinVMAuto = "%SETUPPATH%/WinVMAuto.exe"
 
 # docker container running on background
-dockerrun = "docker run -itd"
+dockerrun = 'docker run -itd'
+dockerath = 'docker attach'
 
 # 인자로 받기
 def receive_argu(string):
@@ -24,6 +26,7 @@ def receive_argu(string):
     if (string == 1):
         print("Running Kali Linux on Docker ...")
         subprocess.call([dockerrun,'-p','50000:5900','-p','50001:5901','5drone/kali:latest'])
+        # vnc 한번 연결했다가 끄고 다시 연결하는걸로
         subprocess.call([rVNCviewer,'192.168.99.100:1','-listen 50001'])
     elif (string == 2):
         print("Running Ubuntu on Docker ...")
@@ -47,8 +50,11 @@ def receive_argu(string):
         subprocess.call([rVNCviewer,'192.168.99.100:1','-listen 50011'])
     elif (string == 7):
         print("Running bWASP on Docker ...")
-        subprocess.call([dockerrun,'-p','50012:5900','-p','50013:5901','5drone/bee:latest'])
-        subprocess.call([rVNCviewer,'192.168.99.100:1','-listen 50013'])
+        subprocess.call(['docker','run','-itd','--name','beevnc','-p','5012:5900','-p','5013:5901','5drone/dockerhub:bee','/bin/bash'])
+        subprocess.call(['docker','exec','beevnc','vnc4server'])
+        # subprocess.call(['vnc4server'])
+        # sleep(30)
+        subprocess.run([rVNCviewer,'192.168.99.100:1','-listen 5013'])
     elif (string == 8):
         print("Running Windows 7 on VMWare ...")
         subprocess.call([WinVMAuto,'1'])
@@ -63,12 +69,14 @@ if __name__ == '__main__':
     print("======== Docker / VM Launcher ========")
 
     print("Detecting Docker ...")
-    if(os.path.isfile(dockertbx) == False):
+    print(dockertbx)
+    if(os.path.isdir(dockertbx) == False):
         print("Docker not Installed. Please Reinstall Docker.")
         exit(0)
     print("Docker Detected")
 
     print("Detecting RealVNC Viewer ...")
+    print(rVNCviewer)
     if(os.path.isfile(rVNCviewer) == False):
         print("RealVNC Viewer not Installed. Please Reinstall RealVNC Viewer.")
         exit(0)
