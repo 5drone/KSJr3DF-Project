@@ -23,5 +23,13 @@
 ![5드론_시스템구성도](https://user-images.githubusercontent.com/49422777/69651242-1ffbaf80-10b3-11ea-8438-0401d642b9a2.jpg)
 
 # 3. Tech/Framework
+##
+  *Installation bundle : VMWare, TightVNC, Silent Intall Builder, NSIS 
+  *Server : Vultr, Cent OS 
+  *DB : Maria DB
+  *GUI : python PyQt
+  *Docker : Docker Toolbox
+  *Docker Image : Kali Linux, Ubuntu, Bee, CentOS, metasploit, VyOS
+   
 # 4. Contributors
 * 김종우, 민준영, 윤영기, 이영진, 최민철
