@@ -21,6 +21,5 @@
 
 # 2. 시스템 구성도
 # 3. Tech/Framework
-# 4. How to use?
-# 5. Contributors
+# 4. Contributors
 * 김종우, 민준영, 윤영기, 이영진, 최민철
