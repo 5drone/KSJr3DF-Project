@@ -15,6 +15,7 @@ import Mail.mailconfig
 # UI 코드 -> ui_form_code 밑에 저장
 # 모든 Dialog 테스트 및 구현 부분
 
+
 # 회원가입 인증완료 Dialog
 class DlgSignupEvt(QDialog, GUI.ui_form_code.dlg0_signup_evt.Ui_Dialog):
     def __init__(self, parent=None):
@@ -40,7 +41,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         # 구성요소 목록
         self.comp_list = ["Ubuntu", "Kali", "Bee", "Windows", "Meta", "VyOS", "Security Onion"]
 
-        # 활성화 구성요소 및 그룹명, 개수 저장 리스트 / 포맷 형식 (그룹명-구성요소-개수)
+        # 활성화 구성요소 및 그룹명, 개수 저장 리스트 / 포맷 형식 (그룹명-구성요소-개수) - ComboBox에 사용
         self.comp_group_list=[]
 
         # ListScrollArea1 목록 레이아웃 설정
@@ -79,11 +80,28 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
 
     # 다음 버튼 클릭 이벤트
     def nextOnClicked(self):
+        # 워크스페이스 이름 저장
         self.ws_name = self.WS_Name_editText.text()
-        self.close()
-        topology_dialog = DlgTopology()
-        topology_dialog.exec_()
-        return self.ws_name
+        
+        # 토폴로지 다이얼로그에 전달할 구성요소 리스트
+        self.trans_comp_list = []
+        flag = 0
+
+        # ScrollLayout2에 활성화 된 구성요소 리스트에 저장
+        for count_index in range(self.scrolllayout3.count()):
+            child = self.scrolllayout3.itemAt(count_index)
+            if child.widget().isChecked():
+                self.trans_comp_list.append(child.widget().text().split('-'))
+                flag=flag+1
+
+        # 구성요소 관리 클래스에 리스트 저장 (예외처리 : 워크스페이스 입력 및 1개 이상 구성요소 체크)
+        if self.ws_name != None and flag != 0:
+            self.close()
+            topology_dialog = DlgTopology(self.trans_comp_list)         # 구성요소 리스트 토폴로지 다이얼로그에 전달
+            topology_dialog.exec_()
+            return self.ws_name
+        else:
+            QtWidgets.QMessageBox.about(None, "입력", "입력해라")
 
     # 1 to 2 버튼 클릭 이벤트
     def oneTotwoOnClicekd(self):
@@ -359,19 +377,51 @@ class DlgSignup(QDialog, GUI.ui_form_code.signup.Ui_Dialog):
 
 # Topology Input Form Dialog
 class DlgTopology(QDialog, GUI.ui_form_code.topology.Ui_Dialog):
-    def __init__(self, parent=None):
-        QDialog.__init__(self, parent)
+    def __init__(self, compo_list):
+        QDialog.__init__(self)
         self.setupUi(self)
+        self.compo_list = compo_list
+
+        # ListScrollArea1 목록 레이아웃 설정
+        self.scrolllayout1 = QFormLayout()
+        self.scrollwidget1 = QWidget()
+        self.scrollwidget1.setLayout(self.scrolllayout1)
+        self.First_scrollArea.setWidget(self.scrollwidget1)
+
+        # ListScrollArea2 목록 레이아웃 설정
+        self.scrolllayout2 = QFormLayout()
+        self.scrollwidget2 = QWidget()
+        self.scrollwidget2.setLayout(self.scrolllayout2)
+        self.Second_scrollArea.setWidget(self.scrollwidget2)
+
+        # ListScrollArea3 목록 레이아웃 설정
+        self.scrolllayout3 = QFormLayout()
+        self.scrollwidget3 = QWidget()
+        self.scrollwidget3.setLayout(self.scrolllayout3)
+        self.Third_scrollArea.setWidget(self.scrollwidget3)
+
+        # 구성요소 체크박스 설정
+        self.settingComponent()
 
         self.Finish_pushButton.clicked.connect(self.finishOnClicked)            # Finish_pushButton과 finishOnClicked함수 연결
-        Dialog = DlgMenu1Evt()
-        print(Dialog.comp_group_list)
 
     # 완료 버튼 이벤트
     def finishOnClicked(self):
         QtWidgets.QMessageBox.about(None, "설정완료","설정완료")
         self.close()
 
+    # 선택된 구성요소 설정
+    def settingComponent(self):
+        for count in range(len(self.compo_list)):
+            self.grouplist1 = QCheckBox()
+            self.grouplist1.setText(self.compo_list[count][0])
+            self.grouplist2 = QCheckBox()
+            self.grouplist2.setText(self.compo_list[count][0])
+            self.grouplist3 = QCheckBox()
+            self.grouplist3.setText(self.compo_list[count][0])
+            self.scrolllayout1.addRow(self.grouplist1)
+            self.scrolllayout2.addRow(self.grouplist2)
+            self.scrolllayout3.addRow(self.grouplist3)
 
 # Dialog 테스트 함수
 def main():
