@@ -58,7 +58,7 @@ def receive_argu(string, int):
     elif (int == 6):
         print("Running CentOS on Docker ...")
         subprocess.call(['docker','run','-itd','--name','centosvnc','-p','50006:5901','--net',string,'5drone/dockerhub:centos','/bin/bash'])
-        subprocess.call(['docker','exec','centosvnc','vnc4server'])
+        subprocess.call(['docker','exec','centosvnc','vncserver'])
         subprocess.run([tVNCviewer,'192.168.99.100::50006','-password=5drone'])
     elif (int == 7):
         print("Running bWASP on Docker ...")
