@@ -20,6 +20,8 @@
 	* 도커를 이용해 사용자 스스로 PC에 교육망 구축함으로써 기존의 망 구축보다 비용 및 성능면에서 높은 효율을 보일 것 
 
 # 2. 시스템 구성도
+![5드론_시스템구성도](https://user-images.githubusercontent.com/49422777/69651242-1ffbaf80-10b3-11ea-8438-0401d642b9a2.jpg)
+
 # 3. Tech/Framework
 # 4. Contributors
 * 김종우, 민준영, 윤영기, 이영진, 최민철
