@@ -36,6 +36,9 @@ class Ui_Dialog(object):
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 188, 148))
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
+        self.network_checkBox = QtWidgets.QCheckBox(self.scrollAreaWidgetContents_4)
+        self.network_checkBox.setGeometry(QtCore.QRect(20, 20, 121, 19))
+        self.network_checkBox.setObjectName("network_checkBox")
         self.Toolbox_scrollArea.setWidget(self.scrollAreaWidgetContents_4)
         self.First_scrollArea = QtWidgets.QScrollArea(self.Right_frame)
         self.First_scrollArea.setGeometry(QtCore.QRect(10, 30, 190, 100))
@@ -114,6 +117,7 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "General 5ho"))
         self.Finish_pushButton.setText(_translate("Dialog", "완료"))
+        self.network_checkBox.setText(_translate("Dialog", "네트워크 연결"))
         self.First_Label.setToolTip(_translate("Dialog", "<html><head/><body><p><br/></p></body></html>"))
         self.First_Label.setWhatsThis(_translate("Dialog", "<html><head/><body><p><br/></p></body></html>"))
         self.First_Label.setText(_translate("Dialog", "1"))

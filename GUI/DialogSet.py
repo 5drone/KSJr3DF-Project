@@ -10,7 +10,17 @@ import GUI.ui_form_code.signup, GUI.ui_form_code.topology
 import GUI.MainWindow
 import DB.dbconfig
 import Mail.mailconfig
+import View.ToolBox
 
+"""
+import sys
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+
+QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+"""
 # UI 코드와 논리 코드 구분
 # UI 코드 -> ui_form_code 밑에 저장
 # 모든 Dialog 테스트 및 구현 부분
@@ -39,7 +49,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         self.after_index=None
 
         # 구성요소 목록
-        self.comp_list = ["Ubuntu", "Kali", "Bee", "Windows", "Meta", "VyOS", "Security Onion"]
+        self.comp_list = ["Ubuntu", "Kali", "Bee", "CentOS", "Meta", "VyOS", "Security Onion", "Windows7","Windows Server 2012"]
 
         # 활성화 구성요소 및 그룹명, 개수 저장 리스트 / 포맷 형식 (그룹명-구성요소-개수) - ComboBox에 사용
         self.comp_group_list=[]
@@ -73,6 +83,27 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
         self.Group_List_editText.returnPressed.connect(self.glEditPressEnter)   # Group_List_editText과 glEditPressEnter함수 연결
         self.Group_delete_pushButton.clicked.connect(self.groupDelete)          # Group_delete_pushButton과 groupDelete함수 연결
         self.Group_List_comboBox.currentTextChanged.connect(self.cbInputText)   # Group_List_comboBox과 cbInputText함수 연결
+        self.Add_pushButton.clicked.connect(self.addCompBt)                     # Add_pushButton과 addCompBt함수 연결
+        self.Sub_pusthButton.clicked.connect(self.subCompBt)                    # Sub_pusthButton과 subCompBt함수 연결
+
+    # 구성요소 추가 버튼
+    def addCompBt(self):
+        for count_index in range(self.scrolllayout3.count()):
+            child = self.scrolllayout3.itemAt(count_index)
+            if child.widget().isChecked():
+                tmp_text = child.widget().text().split('-')
+                tmp_cnt = int(tmp_text[2])+1
+                child.widget().setText(tmp_text[0]+"-"+tmp_text[1]+"-"+str(tmp_cnt))
+
+    # 구성요소 삭제 버튼
+    def subCompBt(self):
+        for count_index in range(self.scrolllayout3.count()):
+            child = self.scrolllayout3.itemAt(count_index)
+            if child.widget().isChecked():
+                tmp_text = child.widget().text().split('-')
+                tmp_cnt = int(tmp_text[2])-1
+                if tmp_cnt >= 0:
+                    child.widget().setText(tmp_text[0]+"-"+tmp_text[1]+"-"+str(tmp_cnt))
 
     # 취소 버튼 클릭 이벤트
     def cancelOnClicked(self):
@@ -101,7 +132,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
             topology_dialog.exec_()
             return self.ws_name
         else:
-            QtWidgets.QMessageBox.about(None, "입력", "입력해라")
+            QtWidgets.QMessageBox.about(None, "입력오류", "입력하지 않은 사항이 있습니다")
 
     # 1 to 2 버튼 클릭 이벤트
     def oneTotwoOnClicekd(self):
@@ -128,7 +159,7 @@ class DlgMenu1Evt(QDialog, GUI.ui_form_code.dlg1_menu1_evt.Ui_Dialog):
                 tmp_button.setText(j+"-%s"%before_child.widget().text())        # 포맷 형식 : 그룹이름-구성요소
                 self.scrolllayout2.addRow(tmp_button)
         elif flag > 1:
-            QtWidgets.QMessageBox.about(None, "하나만 선택해", "하나만")
+            QtWidgets.QMessageBox.about(None, "입력오류", "한개만 선택하시오")
 
     # 2 to 3 버튼 클릭 이벤트
     def twoTothreeOnClicekd(self):
@@ -215,7 +246,7 @@ class DlgMenu2Evt(QDialog, GUI.ui_form_code.dlg2_menu2_evt.Ui_Dialog):
 
     # 삭제 버튼 이벤트
     def removeOnCliecked(self):
-        QtWidgets.QMessageBox.about(None, "워크스페이스삭제", "워크스페이스 삭제 가즈아~~")
+        QtWidgets.QMessageBox.about(None, "워크스페이스삭제", "워크스페이스 삭제")
         self.close()
         self.result = 1
         return self.result
@@ -232,7 +263,7 @@ class DlgMenu3Evt(QDialog, GUI.ui_form_code.dlg3_menu3_evt.Ui_Dialog):
 
     # 삭제 버튼 이벤트
     def removeOnCliecked(self):
-        QtWidgets.QMessageBox.about(None, "스냅샷 삭제", "스냅샷 삭제 가즈아~~")
+        QtWidgets.QMessageBox.about(None, "스냅샷 삭제", "스냅샷 삭제")
         self.close()
         self.result = 1
         return self.result
@@ -248,7 +279,7 @@ class DlgMenu4Evt(QDialog, GUI.ui_form_code.dlg4_menu4_evt.Ui_Dialog):
 
     # 삭제 버튼 이벤트
     def removeOnCliecked(self):
-        QtWidgets.QMessageBox.about(None, "스냅샷 초기화", "스냅샷 초기화 가즈아~~")
+        QtWidgets.QMessageBox.about(None, "스냅샷 초기화", "스냅샷 초기화")
         self.close()
         self.result = 1
         return self.result
@@ -271,13 +302,13 @@ class DlgLogin(QDialog, GUI.ui_form_code.login.Ui_Dialog):
 
         result = mysql_controller.selectSQL_login(login)
         if result == False:
-            QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패다~ 이 ~ 개 쉐이야")
+            QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패")
         elif login[0] == result[0][0] and login[1] == result[0][1]:
             self.result=1
             self.close()
             return self.result
         else:
-            QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패다~ 이 ~ 개 쉐이야")
+            QtWidgets.QMessageBox.about(None, "로그인 실패", "로그인 실패")
 
     # SignUp버튼 이벤트
     def signuppushOnClicked(self):
@@ -378,9 +409,17 @@ class DlgSignup(QDialog, GUI.ui_form_code.signup.Ui_Dialog):
 # Topology Input Form Dialog
 class DlgTopology(QDialog, GUI.ui_form_code.topology.Ui_Dialog):
     def __init__(self, compo_list):
+        super().__init__()
+
         QDialog.__init__(self)
         self.setupUi(self)
         self.compo_list = compo_list
+        
+        # 네트워크 도구상자 체크 확인
+        self.drawType = 0
+
+        # 좌측 레이아웃박스
+        self.view = View.ToolBox.CView(self)
 
         # ListScrollArea1 목록 레이아웃 설정
         self.scrolllayout1 = QFormLayout()
@@ -400,25 +439,64 @@ class DlgTopology(QDialog, GUI.ui_form_code.topology.Ui_Dialog):
         self.scrollwidget3.setLayout(self.scrolllayout3)
         self.Third_scrollArea.setWidget(self.scrollwidget3)
 
+        # GraphicScrollArea
+        #self.graphicsView.setWiidget(self.view)
+
         # 구성요소 체크박스 설정
         self.settingComponent()
+        # 구성요소 이미지 설정
+        self.settingComponentImage()
 
+        # 도구상자 체크박스 연결
+        #self.network_checkBox.clicked.connect(self.checkboxClicked)
+        # 완료버튼 이벤트 연결
         self.Finish_pushButton.clicked.connect(self.finishOnClicked)            # Finish_pushButton과 finishOnClicked함수 연결
 
+    """
+    # 네트워크 도구상자 체크 확인 함수
+    def checkboxClicked(self):
+        if self.network_checkBox.isChecked():
+            self.drawType = 1
+        else:
+            self.drawType = 0
+    """
     # 완료 버튼 이벤트
     def finishOnClicked(self):
         QtWidgets.QMessageBox.about(None, "설정완료","설정완료")
         self.close()
 
+    # 선택된 구성요소 이미지 설정
+    def settingComponentImage(self):
+        height = 45
+        width = 45
+        tmp = 0
+        
+        # 각각의 구성요소 총 개수 만큼 버튼 생성
+        for count in range(len(self.compo_list)):
+            for comp_count in range(int(self.compo_list[count][2])):
+                self.button = QPushButton(str(self.compo_list[count][0]), self)
+                self.button.resize(100, 100)
+                self.button.move(width, height)
+                if (tmp+1)%5 == 0 :
+                    height = height + 135
+                    width = 45
+                else:
+                    width = width + 135
+                tmp+=1
+                
+                
     # 선택된 구성요소 설정
     def settingComponent(self):
         for count in range(len(self.compo_list)):
             self.grouplist1 = QCheckBox()
-            self.grouplist1.setText(self.compo_list[count][0])
+            self.grouplist1.setChecked(True)
+            self.grouplist1.setText(self.compo_list[count][0]+" "+self.compo_list[count][2]+"개")
             self.grouplist2 = QCheckBox()
-            self.grouplist2.setText(self.compo_list[count][0])
+            self.grouplist2.setChecked(True)
+            self.grouplist2.setText(self.compo_list[count][0]+" "+self.compo_list[count][2]+"개")
             self.grouplist3 = QCheckBox()
-            self.grouplist3.setText(self.compo_list[count][0])
+            self.grouplist3.setChecked(True)
+            self.grouplist3.setText(self.compo_list[count][0]+" "+self.compo_list[count][2]+"개")
             self.scrolllayout1.addRow(self.grouplist1)
             self.scrolllayout2.addRow(self.grouplist2)
             self.scrolllayout3.addRow(self.grouplist3)

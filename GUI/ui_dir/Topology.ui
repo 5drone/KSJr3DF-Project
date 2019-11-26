@@ -76,6 +76,19 @@ color: rgb(255, 255, 255);</string>
        <height>148</height>
       </rect>
      </property>
+     <widget class="QCheckBox" name="network_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>121</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>네트워크 연결</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QScrollArea" name="First_scrollArea">
