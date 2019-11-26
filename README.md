@@ -24,13 +24,12 @@
 
 # 3. Tech/Framework
 ##
-```
      * Installation bundle : VMWare, TightVNC, Silent Intall Builder, NSIS   
      * Server : Vultr, Cent OS   
      * DB : Maria DB  
      * GUI : python PyQt  
      * Docker : Docker Toolbox  
-     * Docker Image : Kali Linux, Ubuntu, Bee, CentOS, metasploit, VyOS  
- ```  
+     * Docker Image : Kali Linux, Ubuntu, Bee, CentOS, metasploit, VyOS   
+     
 # 4. Contributors
 * 김종우, 민준영, 윤영기, 이영진, 최민철
