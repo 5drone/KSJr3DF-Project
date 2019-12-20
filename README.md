@@ -62,14 +62,17 @@ https://medium.com/@roberto.fernandez.perez/create-docker-base-image-for-legacy-
 ![13](https://user-images.githubusercontent.com/49422777/71221638-b4eb7480-2310-11ea-9f98-3bdad829f5b3.JPG)
 
 * qemu를 이용해 vmdk파일을 변환
+
 qemu-img convert -f [포맷] -O [변경후 포맷] [사용할 파일] [이름 지정]
 ![14](https://user-images.githubusercontent.com/49422777/71221644-b9179200-2310-11ea-92d8-3489390c3715.JPG)
 
 * guestfish를 이용해 가상이미지에서 운영체제가 설치된 파티션 추출
+
 guestfish -a [가상이미지 이름] --ro
 ![15](https://user-images.githubusercontent.com/49422777/71221647-bc128280-2310-11ea-910a-aab6613a4d13.JPG)
 
 run 실행 후 이미지에서 파티션 목록 출력
+
 list-filesystems
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
 
