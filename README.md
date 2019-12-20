@@ -50,8 +50,7 @@
 
 ![10](https://user-images.githubusercontent.com/49422777/71220867-861fcf00-230d-11ea-8515-c18541609489.JPG)
 
-![11](https://user-images.githubusercontent.com/49422777/71220869-891abf80-230d-11ea-8c88-5994685289f4.JPG)
-
+* docker 테스트를 위해 hello-world 이미지를 이용해 컨테이너 run
 ![12](https://user-images.githubusercontent.com/49422777/71220875-8ddf7380-230d-11ea-9f9d-20bef5c39062.JPG)
 
 *vmdk파일을 도커 이미지로 변환 
