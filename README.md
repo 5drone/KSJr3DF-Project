@@ -149,8 +149,7 @@ vnc는 5901 포트부터 시작하므로 컨테이너 쪽은 5901, 5902 포트 �
 * 컨테이너에 접속 후 vnc사용을 위해 vnc4server 설치
 
 (참고사이트 : https://web-programming-info.tistory.com/26
-              
-	      https://idchowto.com/?p=46149)
+	      https://idchowto.com/?p=46149 )
 
 apt-get install vnc4server
 
@@ -173,7 +172,8 @@ vi xstartup
 ![27](https://user-images.githubusercontent.com/49422777/71270775-c2970d80-2395-11ea-8ba7-6c2e39fceb4e.JPG)
 
 
-###------------------------------------------------------------------------------------
+##------------------------------------------------------------------------------------
+
 *(수정필요 - xstartup파일 수정 및 저장)
 ![28](https://user-images.githubusercontent.com/49422777/71270814-d6db0a80-2395-11ea-89bb-ce16c7ae824d.JPG)
 
