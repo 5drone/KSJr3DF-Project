@@ -84,6 +84,7 @@ guestfish -a [가상이미지 이름] --ro
 
 
 run 실행 후 이미지에서 파티션 목록 출력
+
 list-filesystems
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
 
