@@ -30,28 +30,37 @@
 
 ![2](https://user-images.githubusercontent.com/49422777/71220709-df3b3300-230c-11ea-95ee-3e55b7344c7d.JPG)
 
+
 * guestfish 설치
 
 ![3](https://user-images.githubusercontent.com/49422777/71220830-6c7e8780-230d-11ea-9797-eec553257131.JPG)
+
 
 * 우분투에 도커 설치하기(참고사이트 : https://kururu.tistory.com/87)
 
 ![4](https://user-images.githubusercontent.com/49422777/71220835-6f797800-230d-11ea-95aa-1d0d4aa34cca.JPG)
 
+
 ![5](https://user-images.githubusercontent.com/49422777/71220841-72746880-230d-11ea-9a7c-2c3bd9e94537.JPG)
+
 
 ![6](https://user-images.githubusercontent.com/49422777/71220845-7607ef80-230d-11ea-8101-3ee313216843.JPG)
 
+
 ![7](https://user-images.githubusercontent.com/49422777/71220850-799b7680-230d-11ea-841c-82c0f3bb4095.JPG)
+
 
 ![8](https://user-images.githubusercontent.com/49422777/71220856-7ef8c100-230d-11ea-9780-7769f38f1a8b.JPG)
 
+
 ![9](https://user-images.githubusercontent.com/49422777/71220862-828c4800-230d-11ea-8526-57fee7e2bef5.JPG)
+
 
 ![10](https://user-images.githubusercontent.com/49422777/71220867-861fcf00-230d-11ea-8515-c18541609489.JPG)
 
 * docker 테스트를 위해 hello-world 이미지를 이용해 컨테이너 run
 ![12](https://user-images.githubusercontent.com/49422777/71220875-8ddf7380-230d-11ea-9f9d-20bef5c39062.JPG)
+
 
 * vmdk파일을 도커 이미지로 변환 
 (참고사이트 : 
@@ -61,20 +70,23 @@ https://medium.com/@roberto.fernandez.perez/create-docker-base-image-for-legacy-
 * 이미지로 만들 vmdk파일을 리눅스에 저장
 ![13](https://user-images.githubusercontent.com/49422777/71221638-b4eb7480-2310-11ea-9f98-3bdad829f5b3.JPG)
 
+
 * qemu를 이용해 vmdk파일을 변환
 
 qemu-img convert -f [포맷] -O [변경후 포맷] [사용할 파일] [이름 지정]
 ![14](https://user-images.githubusercontent.com/49422777/71221644-b9179200-2310-11ea-92d8-3489390c3715.JPG)
+
 
 * guestfish를 이용해 가상이미지에서 운영체제가 설치된 파티션 추출
 
 guestfish -a [가상이미지 이름] --ro
 ![15](https://user-images.githubusercontent.com/49422777/71221647-bc128280-2310-11ea-910a-aab6613a4d13.JPG)
 
+
 run 실행 후 이미지에서 파티션 목록 출력
 list-filesystems
-
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
+
 
 * 메인파티션을 / 에 마운트
 mount [메인파티션 경로] /
@@ -83,9 +95,11 @@ tar-out / [파일이름 지정]
 
 ![01-1](https://user-images.githubusercontent.com/49422777/71223212-8cff0f80-2316-11ea-93b7-775c3e0ec289.JPG)
 
+
 * 완료 후 exit로 guestfish 종료
 
 ![02-1](https://user-images.githubusercontent.com/49422777/71223218-8ffa0000-2316-11ea-8a20-ad287f592602.JPG)
+
 
 * 도커를 이용해 tar파일을 도커이미지파일로 변환
 
@@ -99,22 +113,26 @@ docker images
 
 ![05-1](https://user-images.githubusercontent.com/49422777/71223219-925c5a00-2316-11ea-89bb-48bdae5f8b5e.JPG)
 
+
 * 도커허브에 도커이미지를 올리기 위해 로그인
 
 docker login - 도커허브 id와 password 입력
 
 ![20](https://user-images.githubusercontent.com/49422777/71244478-f2bebc00-2355-11ea-9ed7-25b8970c2df7.JPG)
 
+
 * 도커허브에 도커 이미지 저장하기
 
 docker push [도커이미지이름]
 ![06](https://user-images.githubusercontent.com/49422777/71223222-94261d80-2316-11ea-848f-915140053ba3.JPG)
+
 
 * 도커허브에 올린 도커이미지파일 저장
 
 docker pull [저장할 도커이미지파일 이름]
 
 ![23](https://user-images.githubusercontent.com/49422777/71245727-b04aae80-2358-11ea-870a-886868c9794a.JPG)
+
 
 * 도커이미지 이용해 컨테이너 생성
 
