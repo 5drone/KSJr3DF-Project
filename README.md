@@ -26,3 +26,25 @@
 * 김종우, 민준영, 윤영기, 이영진, 최민철
 # 6. 도커 이미지 생성
 ![2](https://user-images.githubusercontent.com/49422777/71220709-df3b3300-230c-11ea-95ee-3e55b7344c7d.JPG)
+
+![3](https://user-images.githubusercontent.com/49422777/71220830-6c7e8780-230d-11ea-9797-eec553257131.JPG)
+
+*우분투에 도커 설치하기(참고사이트 : https://kururu.tistory.com/87)
+
+![4](https://user-images.githubusercontent.com/49422777/71220835-6f797800-230d-11ea-95aa-1d0d4aa34cca.JPG)
+
+![5](https://user-images.githubusercontent.com/49422777/71220841-72746880-230d-11ea-9a7c-2c3bd9e94537.JPG)
+
+![6](https://user-images.githubusercontent.com/49422777/71220845-7607ef80-230d-11ea-8101-3ee313216843.JPG)
+
+![7](https://user-images.githubusercontent.com/49422777/71220850-799b7680-230d-11ea-841c-82c0f3bb4095.JPG)
+
+![8](https://user-images.githubusercontent.com/49422777/71220856-7ef8c100-230d-11ea-9780-7769f38f1a8b.JPG)
+
+![9](https://user-images.githubusercontent.com/49422777/71220862-828c4800-230d-11ea-8526-57fee7e2bef5.JPG)
+
+![10](https://user-images.githubusercontent.com/49422777/71220867-861fcf00-230d-11ea-8515-c18541609489.JPG)
+
+![11](https://user-images.githubusercontent.com/49422777/71220869-891abf80-230d-11ea-8c88-5994685289f4.JPG)
+
+![12](https://user-images.githubusercontent.com/49422777/71220875-8ddf7380-230d-11ea-9f9d-20bef5c39062.JPG)
