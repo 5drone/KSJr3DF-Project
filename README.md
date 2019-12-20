@@ -189,3 +189,22 @@ vi xstartup
 * 현재 vnc 실행 시 1번 디스플레이가 시작됨 -> vnc는 5901부터 시작하므로 10000번포트를 이용해 접속
 
 ![30](https://user-images.githubusercontent.com/49422777/71270855-ea867100-2395-11ea-9029-f3d60b3691b3.JPG)
+
+
+* 호스트에서 vnc뷰어 프로그램(사진은 크롬 확장프로그램중 VNC Viewer for google chrome)을 실행
+* 접속하고자 하는 컨테이너의 ip와 포트번호 지정 후 연결
+
+![32](https://user-images.githubusercontent.com/49422777/71277931-89609c80-2399-11ea-8743-3a845d24dfca.JPG)
+
+
+![33](https://user-images.githubusercontent.com/49422777/71277934-8bc2f680-2399-11ea-8144-17c65043d901.JPG)
+
+
+* vnc4server 설치시 지정했던 패스워드 입력
+
+![34](https://user-images.githubusercontent.com/49422777/71277940-8e255080-2399-11ea-9a39-68ddc3e02842.JPG)
+
+
+* vnc로 접속된 모습
+
+![35](https://user-images.githubusercontent.com/49422777/71277946-91204100-2399-11ea-8c28-eeba648ebe12.JPG)
