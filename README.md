@@ -72,8 +72,8 @@ guestfish -a [가상이미지 이름] --ro
 ![15](https://user-images.githubusercontent.com/49422777/71221647-bc128280-2310-11ea-910a-aab6613a4d13.JPG)
 
 run 실행 후 이미지에서 파티션 목록 출력
-
 list-filesystems
+
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
 
 ![01-1](https://user-images.githubusercontent.com/49422777/71223212-8cff0f80-2316-11ea-93b7-775c3e0ec289.JPG)
