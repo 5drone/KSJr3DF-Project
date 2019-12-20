@@ -88,20 +88,25 @@ tar-out / [파일이름 지정]
 ![02-1](https://user-images.githubusercontent.com/49422777/71223218-8ffa0000-2316-11ea-8a20-ad287f592602.JPG)
 
 * 도커를 이용해 tar파일을 도커이미지파일로 변환
+
 docker import [tar파일] [도커이미지 이름]
+
 도커이미지의 이름은 [계정명]/[운영체제이름]:[버전태그]로 지정
 
 확인하기 위해 저장되어 있는 도커이미지 파일 확인
+
 docker images
 
 ![05-1](https://user-images.githubusercontent.com/49422777/71223219-925c5a00-2316-11ea-89bb-48bdae5f8b5e.JPG)
 
 * 도커허브에 도커이미지를 올리기 위해 로그인
+
 docker login - 도커허브 id와 password 입력
 
 ![20](https://user-images.githubusercontent.com/49422777/71244478-f2bebc00-2355-11ea-9ed7-25b8970c2df7.JPG)
 
 * 도커허브에 도커 이미지 저장하기
+
 docker push [도커이미지이름]
 ![06](https://user-images.githubusercontent.com/49422777/71223222-94261d80-2316-11ea-848f-915140053ba3.JPG)
 
