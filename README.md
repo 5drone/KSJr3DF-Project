@@ -48,3 +48,15 @@
 ![11](https://user-images.githubusercontent.com/49422777/71220869-891abf80-230d-11ea-8c88-5994685289f4.JPG)
 
 ![12](https://user-images.githubusercontent.com/49422777/71220875-8ddf7380-230d-11ea-9f9d-20bef5c39062.JPG)
+
+*vmdk파일을 도커 이미지로 변환 
+(참고사이트 : https://blog.inslash.com/how-to-convert-vmdk-to-a-docker-image-be939745ed8a
+             https://medium.com/@roberto.fernandez.perez/create-docker-base-image-for-legacy-linux-system-3f5f77acd740 )
+
+![13](https://user-images.githubusercontent.com/49422777/71221638-b4eb7480-2310-11ea-9f98-3bdad829f5b3.JPG)
+
+![14](https://user-images.githubusercontent.com/49422777/71221644-b9179200-2310-11ea-92d8-3489390c3715.JPG)
+
+![15](https://user-images.githubusercontent.com/49422777/71221647-bc128280-2310-11ea-910a-aab6613a4d13.JPG)
+
+![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
