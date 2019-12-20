@@ -70,3 +70,7 @@
 ![20](https://user-images.githubusercontent.com/49422777/71244478-f2bebc00-2355-11ea-9ed7-25b8970c2df7.JPG)
 
 ![06](https://user-images.githubusercontent.com/49422777/71223222-94261d80-2316-11ea-848f-915140053ba3.JPG)
+
+![23](https://user-images.githubusercontent.com/49422777/71245727-b04aae80-2358-11ea-870a-886868c9794a.JPG)
+
+![24](https://user-images.githubusercontent.com/49422777/71245743-b6d92600-2358-11ea-909c-f6776da4962e.JPG)
