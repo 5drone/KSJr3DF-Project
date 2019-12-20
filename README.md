@@ -148,6 +148,7 @@ vnc는 5901 포트부터 시작하므로 컨테이너 쪽은 5901, 5902 포트 �
 * 컨테이너에 접속 후 vnc사용을 위해 vnc4server 설치
 
 apt-get install vnc4server
+
 ![25](https://user-images.githubusercontent.com/49422777/71270748-b1e69780-2395-11ea-8179-6b4eb79e5c05.JPG)
 
 
@@ -163,6 +164,7 @@ vnc4server -kill :1
 cd ~/.vnc
 
 vi xstartup
+
 ![27](https://user-images.githubusercontent.com/49422777/71270775-c2970d80-2395-11ea-8ba7-6c2e39fceb4e.JPG)
 
 
@@ -175,6 +177,7 @@ vi xstartup
 
 
 * vnc사용 위해 vnc실행
+
 ![31](https://user-images.githubusercontent.com/49422777/71270851-e78b8080-2395-11ea-83db-21652977f659.JPG)
 
 
@@ -183,6 +186,6 @@ vi xstartup
 
 * 현재 호스트에서 도커 컨테이너로 접근 시 192.168.99.100 ip로 접근해야 함
 
-* 현재 vnc 실행 시 :1 -> 5901 이므로 10000번포트를 이용해 접속
+* 현재 vnc 실행 시 1번 디스플레이가 시작됨 -> vnc는 5901부터 시작하므로 10000번포트를 이용해 접속
 
 ![30](https://user-images.githubusercontent.com/49422777/71270855-ea867100-2395-11ea-9029-f3d60b3691b3.JPG)
