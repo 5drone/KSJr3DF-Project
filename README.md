@@ -27,9 +27,11 @@
 # 6. 도커 이미지 생성
 
 * qemu 설치
+
 ![2](https://user-images.githubusercontent.com/49422777/71220709-df3b3300-230c-11ea-95ee-3e55b7344c7d.JPG)
 
 * guestfish 설치
+
 ![3](https://user-images.githubusercontent.com/49422777/71220830-6c7e8780-230d-11ea-9797-eec553257131.JPG)
 
 *우분투에 도커 설치하기(참고사이트 : https://kururu.tistory.com/87)
