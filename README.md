@@ -34,7 +34,7 @@
 
 ![3](https://user-images.githubusercontent.com/49422777/71220830-6c7e8780-230d-11ea-9797-eec553257131.JPG)
 
-*우분투에 도커 설치하기(참고사이트 : https://kururu.tistory.com/87)
+* 우분투에 도커 설치하기(참고사이트 : https://kururu.tistory.com/87)
 
 ![4](https://user-images.githubusercontent.com/49422777/71220835-6f797800-230d-11ea-95aa-1d0d4aa34cca.JPG)
 
