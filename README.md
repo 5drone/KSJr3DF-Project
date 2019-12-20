@@ -27,6 +27,7 @@
 # 6. 도커 이미지 생성
 
 * qemu 설치
+
 ![2](https://user-images.githubusercontent.com/49422777/71220709-df3b3300-230c-11ea-95ee-3e55b7344c7d.JPG)
 
 * guestfish 설치
