@@ -67,4 +67,6 @@
 
 ![05-1](https://user-images.githubusercontent.com/49422777/71223219-925c5a00-2316-11ea-89bb-48bdae5f8b5e.JPG)
 
+![20](https://user-images.githubusercontent.com/49422777/71244354-a83d3f80-2355-11ea-838f-469109fc71ea.JPG)
+
 ![06](https://user-images.githubusercontent.com/49422777/71223222-94261d80-2316-11ea-848f-915140053ba3.JPG)
