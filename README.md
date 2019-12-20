@@ -76,11 +76,18 @@ list-filesystems
 
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
 
+* 메인파티션을 / 에 마운트
+
+mount [메인파티션 경로] /
 ![01-1](https://user-images.githubusercontent.com/49422777/71223212-8cff0f80-2316-11ea-93b7-775c3e0ec289.JPG)
 
+* 마운트 된 파티션으로 tar 형식 파일 만들기(시간 오래 걸림)
+tar-out / [파일이름 지정]
 ![02-1](https://user-images.githubusercontent.com/49422777/71223218-8ffa0000-2316-11ea-8a20-ad287f592602.JPG)
 
+* 완료 후 exit로 guestfish 종료
 ![05-1](https://user-images.githubusercontent.com/49422777/71223219-925c5a00-2316-11ea-89bb-48bdae5f8b5e.JPG)
+
 
 ![20](https://user-images.githubusercontent.com/49422777/71244478-f2bebc00-2355-11ea-9ed7-25b8970c2df7.JPG)
 
