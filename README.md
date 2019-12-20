@@ -110,6 +110,10 @@ docker login - 도커허브 id와 password 입력
 docker push [도커이미지이름]
 ![06](https://user-images.githubusercontent.com/49422777/71223222-94261d80-2316-11ea-848f-915140053ba3.JPG)
 
+* 도커허브에 올린 도커이미지파일 저장
+
+docker pull [저장할 도커이미지파일 이름]
+
 ![23](https://user-images.githubusercontent.com/49422777/71245727-b04aae80-2358-11ea-870a-886868c9794a.JPG)
 
 ![24](https://user-images.githubusercontent.com/49422777/71245743-b6d92600-2358-11ea-909c-f6776da4962e.JPG)
