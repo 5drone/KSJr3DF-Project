@@ -53,16 +53,24 @@
 * docker 테스트를 위해 hello-world 이미지를 이용해 컨테이너 run
 ![12](https://user-images.githubusercontent.com/49422777/71220875-8ddf7380-230d-11ea-9f9d-20bef5c39062.JPG)
 
-*vmdk파일을 도커 이미지로 변환 
-(참고사이트 : https://blog.inslash.com/how-to-convert-vmdk-to-a-docker-image-be939745ed8a
-             https://medium.com/@roberto.fernandez.perez/create-docker-base-image-for-legacy-linux-system-3f5f77acd740 )
+* vmdk파일을 도커 이미지로 변환 
+(참고사이트 : 
+https://blog.inslash.com/how-to-convert-vmdk-to-a-docker-image-be939745ed8a
+https://medium.com/@roberto.fernandez.perez/create-docker-base-image-for-legacy-linux-system-3f5f77acd740 )
 
+* 이미지로 만들 vmdk파일을 리눅스에 저장
 ![13](https://user-images.githubusercontent.com/49422777/71221638-b4eb7480-2310-11ea-9f98-3bdad829f5b3.JPG)
 
+* qemu를 이용해 vmdk파일을 변환
+qemu-img convert -f [포맷] -O [변경후 포맷] [사용할 파일] [이름 지정]
 ![14](https://user-images.githubusercontent.com/49422777/71221644-b9179200-2310-11ea-92d8-3489390c3715.JPG)
 
+* guestfish를 이용해 가상이미지에서 운영체제가 설치된 파티션 추출
+guestfish -a [가상이미지 이름] --ro
 ![15](https://user-images.githubusercontent.com/49422777/71221647-bc128280-2310-11ea-910a-aab6613a4d13.JPG)
 
+run 실행 후 이미지에서 파티션 목록 출력
+list-filesystems
 ![16](https://user-images.githubusercontent.com/49422777/71221649-be74dc80-2310-11ea-918a-db4049057761.JPG)
 
 ![01-1](https://user-images.githubusercontent.com/49422777/71223212-8cff0f80-2316-11ea-93b7-775c3e0ec289.JPG)
